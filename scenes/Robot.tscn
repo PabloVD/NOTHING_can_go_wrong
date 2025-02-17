@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://li0y2c45rbg6"]
+
+[ext_resource type="Script" path="res://scripts/robot.gd" id="1_o6es4"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u8xuk"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_q2i4f"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_75tlu"]
+
+[node name="Robot" type="CharacterBody3D"]
+script = ExtResource("1_o6es4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_u8xuk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_q2i4f")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, -0.0383845, -0.196282, 0, 0.196282, -0.0383845, -0.00525075, 0.368648, 0.506026)
+mesh = SubResource("CapsuleMesh_75tlu")

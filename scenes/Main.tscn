@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://nr0mbfumagas"]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_lfhg8"]
+[ext_resource type="PackedScene" uid="uid://li0y2c45rbg6" path="res://scenes/Robot.tscn" id="2_qi0ao"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_id4pe"]
+size = Vector3(20, 1, 20)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ydtgm"]
+size = Vector3(20, 1, 20)
+
+[sub_resource type="Sky" id="Sky_jle43"]
+
+[sub_resource type="Environment" id="Environment_mmj8q"]
+background_mode = 1
+background_color = Color(0.49, 0.66, 1, 1)
+sky = SubResource("Sky_jle43")
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_lfhg8")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.522674, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_id4pe")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_ydtgm")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.866025, -0.25, 0.433013, 0, 0.866025, 0.5, -0.5, -0.433013, 0.75, 4.40884, 4.81558, 10.5281)
+projection = 1
+size = 20.0
+near = 0.001
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_mmj8q")
+
+[node name="Robot" parent="." instance=ExtResource("2_qi0ao")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.889751, 0.456446, 0, -0.456446, 0.889751, 0, 0, 0)
