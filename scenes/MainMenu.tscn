@@ -1,0 +1,81 @@
+[gd_scene load_steps=9 format=3 uid="uid://8imkl7vwk6mj"]
+
+[ext_resource type="PackedScene" uid="uid://bvapkyjdd3fsh" path="res://scenes/Forest.tscn" id="1_lrain"]
+[ext_resource type="Texture2D" uid="uid://2un64ah83w87" path="res://assets/others/_0009_AllSkyFree_Screen_01.jpg" id="2_mjb30"]
+[ext_resource type="AudioStream" uid="uid://csmpogssptoy5" path="res://assets/sounds/smartsound_ATMO_NATURE_Quiet_Tropical_Night_With_Cricket_02.mp3" id="5_41p18"]
+[ext_resource type="PackedScene" uid="uid://bsrp02u1ppanj" path="res://scenes/UIMenu.tscn" id="5_lxsnb"]
+[ext_resource type="AudioStream" uid="uid://dc3lje7d4b8cb" path="res://assets/sounds/The forest.mp3" id="7_fi0ec"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_882em"]
+panorama = ExtResource("2_mjb30")
+
+[sub_resource type="Sky" id="Sky_ju840"]
+sky_material = SubResource("PanoramaSkyMaterial_882em")
+
+[sub_resource type="Environment" id="Environment_w2v05"]
+background_mode = 2
+background_energy_multiplier = 1.25
+sky = SubResource("Sky_ju840")
+sky_rotation = Vector3(0, 1.13446, 0)
+ambient_light_color = Color(0.467555, 0.303675, 0.683988, 1)
+ambient_light_sky_contribution = 0.2
+ambient_light_energy = 0.5
+tonemap_mode = 3
+tonemap_white = 1.2
+sdfgi_enabled = true
+glow_enabled = true
+fog_enabled = true
+fog_light_color = Color(0.243137, 0.411765, 0.607843, 1)
+fog_light_energy = 1.8
+fog_sky_affect = 0.05
+fog_height_density = 0.02
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.3
+volumetric_fog_albedo = Color(0.41793, 0.549278, 1, 1)
+volumetric_fog_sky_affect = 0.511
+volumetric_fog_temporal_reprojection_enabled = false
+adjustment_enabled = true
+adjustment_contrast = 1.15
+adjustment_saturation = 1.1
+
+[node name="MainMenu" type="Node3D"]
+
+[node name="Forest" parent="." instance=ExtResource("1_lrain")]
+
+[node name="Lighting" type="Node3D" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lighting"]
+transform = Transform3D(0.422618, -0.383022, 0.821394, 0, 0.906308, 0.422618, -0.906308, -0.178606, 0.383022, 0, 2.29496, 0)
+light_color = Color(0.109804, 0.101961, 0.921569, 1)
+light_indirect_energy = 0.5
+shadow_enabled = true
+shadow_opacity = 0.85
+shadow_blur = 0.2
+directional_shadow_max_distance = 20.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Lighting"]
+environment = SubResource("Environment_w2v05")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.90591, -0.0251634, -0.422722, 0.0538114, 0.9833, -0.173853, 0.420038, -0.180242, -0.889427, -12.523, 0.874049, 1.82224)
+
+[node name="UIMenu" parent="." instance=ExtResource("5_lxsnb")]
+
+[node name="SoundEnvironment" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_41p18")
+volume_db = 2.0
+autoplay = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_fi0ec")
+volume_db = 2.0
+autoplay = true
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = 450.0
+offset_top = 93.0
+offset_right = 929.0
+offset_bottom = 206.0
+theme_override_font_sizes/font_size = 100
+text = "The Forest"

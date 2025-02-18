@@ -1,0 +1,288 @@
+[gd_scene load_steps=15 format=3 uid="uid://wutvim7gvym4"]
+
+[ext_resource type="Script" path="res://scripts/menu.gd" id="1_apolt"]
+[ext_resource type="Script" path="res://addons/markdownlabel/markdownlabel.gd" id="2_jxje4"]
+[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h1_format.gd" id="3_v11js"]
+[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h2_format.gd" id="4_8sfhg"]
+[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h3_format.gd" id="5_7q5w4"]
+[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h4_format.gd" id="6_cocop"]
+[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h5_format.gd" id="7_5pqdc"]
+[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h6_format.gd" id="8_tr7eo"]
+
+[sub_resource type="Resource" id="Resource_35saj"]
+resource_local_to_scene = true
+script = ExtResource("3_v11js")
+font_size = 2.285
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_68q32"]
+resource_local_to_scene = true
+script = ExtResource("4_8sfhg")
+font_size = 1.714
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_q303c"]
+resource_local_to_scene = true
+script = ExtResource("5_7q5w4")
+font_size = 1.428
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_45726"]
+resource_local_to_scene = true
+script = ExtResource("6_cocop")
+font_size = 1.142
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_ggb7q"]
+resource_local_to_scene = true
+script = ExtResource("7_5pqdc")
+font_size = 1.0
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_jfp18"]
+resource_local_to_scene = true
+script = ExtResource("8_tr7eo")
+font_size = 0.857
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_apolt")
+
+[node name="Copyright" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -268.0
+offset_top = 26.0
+offset_bottom = 49.0
+grow_horizontal = 0
+text = "(c) blablabla, v1.0 "
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 24.0
+offset_right = 646.0
+offset_bottom = 161.0
+theme_override_font_sizes/font_size = 80
+text = "NOTHING can go wrong"
+
+[node name="Menus" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 14.0
+offset_top = 63.0
+offset_right = 54.0
+offset_bottom = 103.0
+
+[node name="MainMenu" type="Control" parent="Menus"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Menus/MainMenu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 95.0
+offset_top = 125.0
+offset_right = 267.0
+offset_bottom = 443.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menus/MainMenu/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Play" type="Button" parent="Menus/MainMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Play"
+
+[node name="Controls" type="Button" parent="Menus/MainMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Controls"
+
+[node name="Credits" type="Button" parent="Menus/MainMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Credits"
+
+[node name="Quit" type="Button" parent="Menus/MainMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Quit"
+
+[node name="Credits" type="Control" parent="Menus"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer2" type="MarginContainer" parent="Menus/Credits"]
+layout_mode = 2
+offset_left = 96.0
+offset_top = 406.0
+offset_right = 308.0
+offset_bottom = 854.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menus/Credits/MarginContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Back" type="Button" parent="Menus/Credits/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Back"
+
+[node name="MarkdownLabel" type="RichTextLabel" parent="Menus/Credits"]
+layout_mode = 0
+offset_left = 93.0
+offset_top = 118.0
+offset_right = 1027.0
+offset_bottom = 387.0
+bbcode_enabled = true
+text = "[font_size=36]Credits[/font_size]
+
+Design, programming and music by
+
+Made in Godot 4 for the game jam [url=https://itch.io/jam/brackeys-13]Brackeys Game Jam 2025.1[/url].
+
+Listen to the soundtrack at blabla
+
+[font_size=27]Assets[/font_size]
+
+All 3D assets and sound effects are community made and free to use.
+
+[font_size=22]3D models[/font_size]
+
+blabla
+
+[font_size=22]Sounds[/font_size]
+
+blabla
+
+[font_size=22]Others[/font_size]
+
+[ul]Font [/ul]"
+script = ExtResource("2_jxje4")
+markdown_text = "# Credits
+
+Design, programming and music by
+
+Made in Godot 4 for the game jam [Brackeys Game Jam 2025.1](https://itch.io/jam/brackeys-13).
+
+Listen to the soundtrack at blabla
+
+## Assets
+
+All 3D assets and sound effects are community made and free to use.
+
+### 3D models
+
+blabla
+
+### Sounds
+
+blabla
+
+### Others
+
+- Font "
+h1 = SubResource("Resource_35saj")
+h2 = SubResource("Resource_68q32")
+h3 = SubResource("Resource_q303c")
+h4 = SubResource("Resource_45726")
+h5 = SubResource("Resource_ggb7q")
+h6 = SubResource("Resource_jfp18")
+
+[node name="Controls" type="Control" parent="Menus"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer2" type="MarginContainer" parent="Menus/Controls"]
+layout_mode = 2
+offset_left = 97.0
+offset_top = 405.0
+offset_right = 309.0
+offset_bottom = 853.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menus/Controls/MarginContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Back" type="Button" parent="Menus/Controls/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Back"
+
+[node name="MarkdownLabel2" type="RichTextLabel" parent="Menus/Controls"]
+layout_mode = 0
+offset_left = 93.0
+offset_top = 118.0
+offset_right = 808.0
+offset_bottom = 387.0
+bbcode_enabled = true
+text = "[font_size=36]Controls[/font_size]
+
+[ul]blablabla[/ul]"
+script = ExtResource("2_jxje4")
+markdown_text = "# Controls
+
+- blablabla"
+h1 = SubResource("Resource_35saj")
+h2 = SubResource("Resource_68q32")
+h3 = SubResource("Resource_q303c")
+h4 = SubResource("Resource_45726")
+h5 = SubResource("Resource_ggb7q")
+h6 = SubResource("Resource_jfp18")
+
+[node name="Fullscreen" type="CheckButton" parent="Menus"]
+layout_mode = 0
+offset_left = 95.0
+offset_top = 514.0
+offset_right = 242.0
+offset_bottom = 550.0
+theme_override_font_sizes/font_size = 20
+text = "Fullscreen"
+
+[connection signal="pressed" from="Menus/MainMenu/MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Menus/MainMenu/MarginContainer/VBoxContainer/Controls" to="." method="_on_controls_pressed"]
+[connection signal="pressed" from="Menus/MainMenu/MarginContainer/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="Menus/MainMenu/MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Menus/Credits/MarginContainer2/VBoxContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Menus/Controls/MarginContainer2/VBoxContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="toggled" from="Menus/Fullscreen" to="." method="_on_fullscreen_toggled"]
