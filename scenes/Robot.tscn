@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://li0y2c45rbg6"]
+[gd_scene load_steps=8 format=3 uid="uid://li0y2c45rbg6"]
 
 [ext_resource type="Script" path="res://scripts/robot.gd" id="1_o6es4"]
 [ext_resource type="PackedScene" uid="uid://c671fr3wfupjo" path="res://assets/space_station/skip.glb" id="2_etvwc"]
 [ext_resource type="PackedScene" uid="uid://brabl34455p6e" path="res://assets/space_station/skip-rocks.glb" id="3_xkv2t"]
+[ext_resource type="AudioStream" uid="uid://boqm0aulvnqnj" path="res://assets/sounds/330359__glitchedtones__error-tone.wav" id="4_nuwoe"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u8xuk"]
 
@@ -33,3 +34,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 
 [node name="skip-rocks" parent="Meshes" instance=ExtResource("3_xkv2t")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0.9)
 visible = false
+
+[node name="JumpError" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_nuwoe")
+volume_db = -8.0

@@ -11,6 +11,7 @@ var has_item := false
 
 @onready var case_empty: Node3D = $Meshes/skip
 @onready var case_full: Node3D = $"Meshes/skip-rocks"
+@onready var jump_error_sound: AudioStreamPlayer = $JumpError
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -22,8 +23,8 @@ func _physics_process(delta: float) -> void:
 		if can_jump:
 			velocity.y = JUMP_VELOCITY
 		else:
+			jump_error_sound.play()
 			print("cannot jump")
-			# play fail sound
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
