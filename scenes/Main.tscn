@@ -10,12 +10,12 @@
 [ext_resource type="PackedScene" uid="uid://dy6ejcq68ja1w" path="res://assets/space_station/display-wall.glb" id="8_8mc3m"]
 [ext_resource type="PackedScene" uid="uid://du8hthrseili5" path="res://assets/space_station/door-double.glb" id="9_rb343"]
 
-[sub_resource type="Sky" id="Sky_jle43"]
+[sub_resource type="Sky" id="Sky_rvo6v"]
 
 [sub_resource type="Environment" id="Environment_mmj8q"]
 background_mode = 1
 background_color = Color(0.49, 0.66, 1, 1)
-sky = SubResource("Sky_jle43")
+sky = SubResource("Sky_rvo6v")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_id4pe"]
 size = Vector3(20, 1, 20)
