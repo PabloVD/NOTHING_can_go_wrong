@@ -1,6 +1,5 @@
 extends CharacterBody3D
 
-
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 
@@ -31,6 +30,8 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
+		
+	$Meshes.look_at(transform.origin + direction, Vector3.UP)
 
 	move_and_slide()
 
@@ -39,6 +40,11 @@ func invert_direction():
 	
 func jump_failure():
 	can_jump = false
+
+func apply_random_force():
+	var force_magnitude = 10.
+	var random_force = force_magnitude*Vector3(randf_range(-1.0, 1.0),randf_range(0., 1.0),randf_range(-1.0, 1.0))
+	velocity += random_force
 
 func repair():
 	print("Repaired!")

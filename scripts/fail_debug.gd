@@ -16,3 +16,4 @@ func _on_fail_area_body_entered(body: Node3D) -> void:
 		print("Escoñao!")
 		body.jump_failure()
 		body.invert_direction()
+		body.apply_random_force()
