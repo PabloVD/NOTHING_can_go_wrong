@@ -1,16 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://nr0mbfumagas"]
+[gd_scene load_steps=11 format=3 uid="uid://nr0mbfumagas"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_lfhg8"]
 [ext_resource type="PackedScene" uid="uid://li0y2c45rbg6" path="res://scenes/Robot.tscn" id="2_qi0ao"]
-[ext_resource type="PackedScene" uid="uid://btf30ux2pl18q" path="res://assets/conveyor_kit/box-wide.glb" id="3_q4rd1"]
-[ext_resource type="PackedScene" uid="uid://cxkrnxofao5a3" path="res://assets/conveyor_kit/conveyor-bars-fence.glb" id="4_0uica"]
-[ext_resource type="PackedScene" uid="uid://wqlb45vaqk7f" path="res://assets/space_station/balcony-rail-center.glb" id="5_varlh"]
-[ext_resource type="PackedScene" uid="uid://dsnqm28j5rawv" path="res://assets/space_station/chair-headrest.glb" id="6_mqlp8"]
-[ext_resource type="PackedScene" uid="uid://eni8w2qq55bo" path="res://assets/space_station/computer.glb" id="7_3661b"]
-[ext_resource type="PackedScene" uid="uid://dy6ejcq68ja1w" path="res://assets/space_station/display-wall.glb" id="8_8mc3m"]
-[ext_resource type="PackedScene" uid="uid://du8hthrseili5" path="res://assets/space_station/door-double.glb" id="9_rb343"]
 [ext_resource type="PackedScene" uid="uid://c054sygn7lnl0" path="res://scenes/RepairStation.tscn" id="10_oi6k0"]
 [ext_resource type="PackedScene" uid="uid://d4cvkwhqf8nmy" path="res://scenes/FailDebug.tscn" id="11_t3w0i"]
+[ext_resource type="PackedScene" uid="uid://dwaa2lp2pb460" path="res://scenes/Item.tscn" id="12_6fxav"]
+[ext_resource type="PackedScene" uid="uid://bayivfpb4i1bb" path="res://scenes/DeliveryZone.tscn" id="13_alklo"]
 
 [sub_resource type="Sky" id="Sky_rvo6v"]
 
@@ -54,31 +49,17 @@ shape = SubResource("BoxShape3D_id4pe")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Scenario/Floor"]
 mesh = SubResource("BoxMesh_ydtgm")
 
-[node name="Stuff" type="Node3D" parent="Scenario"]
-
-[node name="box-wide2" parent="Scenario/Stuff" instance=ExtResource("3_q4rd1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.26733, -0.0226738, 6.48285)
-
-[node name="conveyor-bars-fence" parent="Scenario/Stuff" instance=ExtResource("4_0uica")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.35876, -0.0227349, -4.87073)
-
-[node name="balcony-rail-center2" parent="Scenario/Stuff" instance=ExtResource("5_varlh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.66302, -0.0226738, 3.73901)
-
-[node name="chair-headrest2" parent="Scenario/Stuff" instance=ExtResource("6_mqlp8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.77948, -0.0226128, -2.66602)
-
-[node name="computer2" parent="Scenario/Stuff" instance=ExtResource("7_3661b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1712, -0.0226738, 4.41663)
-
-[node name="display-wall2" parent="Scenario/Stuff" instance=ExtResource("8_8mc3m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2644, -0.0226128, -5.67407)
-
-[node name="door-double2" parent="Scenario/Stuff" instance=ExtResource("9_rb343")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.26465, -0.0226738, -8.72186)
-
-[node name="RepairStation" parent="." instance=ExtResource("10_oi6k0")]
+[node name="RepairStation" parent="Scenario" instance=ExtResource("10_oi6k0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.19629, -0.022674, 5.58655)
 
-[node name="FailDebug" parent="." instance=ExtResource("11_t3w0i")]
+[node name="FailDebug" parent="Scenario" instance=ExtResource("11_t3w0i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.47461, -0.022674, -5.59967)
+
+[node name="Item" parent="Scenario" instance=ExtResource("12_6fxav")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 3)
+
+[node name="Item2" parent="Scenario" instance=ExtResource("12_6fxav")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -3)
+
+[node name="DeliveryZone" parent="Scenario" instance=ExtResource("13_alklo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0338135, -0.022674, -6.87836)

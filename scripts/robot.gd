@@ -4,8 +4,13 @@ const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 
 # Robot failure variables
-var direction_scaler = 1
-var can_jump = true
+var direction_scaler := 1
+var can_jump := true
+
+var has_item := false
+
+@onready var case_empty: Node3D = $Meshes/skip
+@onready var case_full: Node3D = $"Meshes/skip-rocks"
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -50,3 +55,13 @@ func repair():
 	print("Repaired!")
 	direction_scaler = 1
 	can_jump = true
+	
+func get_item():
+	has_item = true
+	case_empty.visible = false
+	case_full.visible = true
+	
+func drop_item():
+	has_item = false
+	case_empty.visible = true
+	case_full.visible = false

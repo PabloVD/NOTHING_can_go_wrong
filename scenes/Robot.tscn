@@ -1,6 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://li0y2c45rbg6"]
+[gd_scene load_steps=7 format=3 uid="uid://li0y2c45rbg6"]
 
 [ext_resource type="Script" path="res://scripts/robot.gd" id="1_o6es4"]
+[ext_resource type="PackedScene" uid="uid://c671fr3wfupjo" path="res://assets/space_station/skip.glb" id="2_etvwc"]
+[ext_resource type="PackedScene" uid="uid://brabl34455p6e" path="res://assets/space_station/skip-rocks.glb" id="3_xkv2t"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u8xuk"]
 
@@ -24,3 +26,10 @@ skeleton = NodePath("../..")
 transform = Transform3D(3.82137e-16, -8.74228e-09, -0.2, -0.2, -8.74228e-09, 0, -8.74228e-09, 0.2, -8.74228e-09, 0, 0.415, -0.5)
 mesh = SubResource("CapsuleMesh_75tlu")
 skeleton = NodePath("../..")
+
+[node name="skip" parent="Meshes" instance=ExtResource("2_etvwc")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0.9)
+
+[node name="skip-rocks" parent="Meshes" instance=ExtResource("3_xkv2t")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0.9)
+visible = false
