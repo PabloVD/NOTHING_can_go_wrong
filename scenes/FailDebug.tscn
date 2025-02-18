@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://d4cvkwhqf8nmy"]
+
+[ext_resource type="Script" path="res://scripts/fail_debug.gd" id="1_1q47w"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e18pn"]
+albedo_color = Color(1, 0.07, 0.07, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qatgb"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_6pm7u"]
+radius = 1.40785
+
+[node name="FailDebug" type="Node3D"]
+script = ExtResource("1_1q47w")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_e18pn")
+mesh = SubResource("BoxMesh_qatgb")
+
+[node name="FailArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FailArea"]
+shape = SubResource("CylinderShape3D_6pm7u")
+
+[connection signal="body_entered" from="FailArea" to="." method="_on_fail_area_body_entered"]
