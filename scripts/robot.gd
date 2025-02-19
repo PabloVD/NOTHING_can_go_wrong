@@ -13,6 +13,8 @@ var has_item := false
 @onready var case_full: Node3D = $"Meshes/skip-rocks"
 @onready var jump_error_sound: AudioStreamPlayer = $JumpError
 
+const EXPLOSION = preload("res://scenes/Explosion.tscn")
+
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -51,6 +53,8 @@ func apply_random_force():
 	var force_magnitude = 10.
 	var random_force = force_magnitude*Vector3(randf_range(-1.0, 1.0),randf_range(0., 1.0),randf_range(-1.0, 1.0))
 	velocity += random_force
+	var explosion = EXPLOSION.instantiate()
+	add_child(explosion)
 
 func repair():
 	print("Repaired!")
