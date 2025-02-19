@@ -9,9 +9,6 @@ func _ready():
 	debris.one_shot = true
 	smoke.one_shot = true
 	fire.one_shot = true
-	#debris.emitting = true
-	#smoke.emitting = true
-	#fire.emitting = true
 	explosion_sound.play()
 	await get_tree().create_timer(2.0).timeout
 	queue_free()
