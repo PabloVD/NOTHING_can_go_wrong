@@ -22,3 +22,7 @@ window/stretch/mode="canvas_items"
 [global_group]
 
 robot=""
+
+[gui]
+
+theme/custom_font="res://assets/fonts/Square.ttf"

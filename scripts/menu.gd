@@ -16,7 +16,7 @@ func _ready() -> void:
 		$Menus/Fullscreen.button_pressed = false
 
 func _on_play_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/Main.tscn")
+	get_tree().change_scene_to_file("res://scenes/InitialMessage.tscn")
 
 func _on_controls_pressed() -> void:
 	controls.visible = true

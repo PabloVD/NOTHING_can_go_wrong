@@ -8,6 +8,7 @@ var direction_scaler := 1
 var can_jump := true
 
 var has_item := false
+var points := 0
 
 @onready var case_empty: Node3D = $Meshes/skip
 @onready var case_full: Node3D = $"Meshes/skip-rocks"

@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://nr0mbfumagas"]
+[gd_scene load_steps=12 format=3 uid="uid://nr0mbfumagas"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_lfhg8"]
 [ext_resource type="PackedScene" uid="uid://li0y2c45rbg6" path="res://scenes/Robot.tscn" id="2_qi0ao"]
+[ext_resource type="PackedScene" uid="uid://betwam7el5ebp" path="res://scenes/GameUI.tscn" id="7_r4kpe"]
 [ext_resource type="PackedScene" uid="uid://c054sygn7lnl0" path="res://scenes/RepairStation.tscn" id="10_oi6k0"]
 [ext_resource type="PackedScene" uid="uid://d4cvkwhqf8nmy" path="res://scenes/FailDebug.tscn" id="11_t3w0i"]
 [ext_resource type="PackedScene" uid="uid://dwaa2lp2pb460" path="res://scenes/Item.tscn" id="12_6fxav"]
@@ -63,3 +64,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -3)
 
 [node name="DeliveryZone" parent="Scenario" instance=ExtResource("13_alklo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0338135, -0.022674, -6.87836)
+
+[node name="GameUI" parent="." instance=ExtResource("7_r4kpe")]

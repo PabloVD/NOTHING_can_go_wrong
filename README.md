@@ -13,4 +13,8 @@ Game for the [Brackeys Game Jam 2025.1](https://itch.io/jam/brackeys-13).
 ### Sounds
 
 - [Error sound by Glitchedtones](https://freesound.org/people/Glitchedtones/sounds/330359/)
-- [Explosion by EvanBoyerman](https://freesound.org/people/EvanBoyerman/sounds/387229/)
+- [Explosion sound by EvanBoyerman](https://freesound.org/people/EvanBoyerman/sounds/387229/)
+
+### Others
+
+- [Squarefont by Bou Fonts](https://www.dafont.com/es/squarefont.font)
