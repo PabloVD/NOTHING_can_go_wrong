@@ -1,11 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://li0y2c45rbg6"]
+[gd_scene load_steps=9 format=3 uid="uid://li0y2c45rbg6"]
 
 [ext_resource type="Script" path="res://scripts/robot.gd" id="1_o6es4"]
 [ext_resource type="PackedScene" uid="uid://c671fr3wfupjo" path="res://assets/space_station/skip.glb" id="2_etvwc"]
 [ext_resource type="PackedScene" uid="uid://brabl34455p6e" path="res://assets/space_station/skip-rocks.glb" id="3_xkv2t"]
+[ext_resource type="PackedScene" uid="uid://dxy5340pp8xas" path="res://scenes/Gobot.tscn" id="4_1seai"]
 [ext_resource type="AudioStream" uid="uid://boqm0aulvnqnj" path="res://assets/sounds/330359__glitchedtones__error-tone.wav" id="4_nuwoe"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u8xuk"]
+height = 1.98827
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_q2i4f"]
 
@@ -15,25 +17,31 @@
 script = ExtResource("1_o6es4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.921775, -0.00636429)
 shape = SubResource("CapsuleShape3D_u8xuk")
 
 [node name="Meshes" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Meshes"]
+visible = false
 mesh = SubResource("CapsuleMesh_q2i4f")
 skeleton = NodePath("../..")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Meshes"]
 transform = Transform3D(3.82137e-16, -8.74228e-09, -0.2, -0.2, -8.74228e-09, 0, -8.74228e-09, 0.2, -8.74228e-09, 0, 0.415, -0.5)
+visible = false
 mesh = SubResource("CapsuleMesh_75tlu")
 skeleton = NodePath("../..")
 
 [node name="skip" parent="Meshes" instance=ExtResource("2_etvwc")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0.9)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.447312, -0.566857)
 
 [node name="skip-rocks" parent="Meshes" instance=ExtResource("3_xkv2t")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0.9)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.447312, -0.566857)
 visible = false
+
+[node name="3DGodotRobot" parent="Meshes" instance=ExtResource("4_1seai")]
 
 [node name="JumpError" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_nuwoe")

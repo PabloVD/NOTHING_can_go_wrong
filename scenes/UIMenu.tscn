@@ -89,12 +89,12 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -287.0
+offset_left = -322.0
 offset_top = 586.0
-offset_right = -19.0
+offset_right = -38.0
 offset_bottom = 609.0
 grow_horizontal = 0
-text = "(c) blablabla, v1.0 "
+text = "(c) BarbeRat and Ergodic Efimov, v1.0 "
 
 [node name="Title" type="Label" parent="."]
 layout_mode = 0
@@ -191,7 +191,7 @@ offset_bottom = 387.0
 bbcode_enabled = true
 text = "[font_size=36]Credits[/font_size]
 
-Design, programming and music by
+Design, programming and music by [url=https://barberat.itch.io/]BarbeRat[/url] and [url=https://ergodicefimov.itch.io/]Ergodic Efimov[/url].
 
 Made in Godot 4 for the game jam [url=https://itch.io/jam/brackeys-13]Brackeys Game Jam 2025.1[/url].
 
@@ -199,23 +199,27 @@ Listen to the soundtrack at blabla
 
 [font_size=27]Assets[/font_size]
 
-All 3D assets and sound effects are community made and free to use.
-
 [font_size=22]3D models[/font_size]
 
-blabla
+[ul][url=https://kenney.nl/assets/conveyor-kit]Kenney's conveyor kit[/url]
+[url=https://kenney.nl/assets/space-station-kit]Kenney's space station kit[/url]
+[url=https://kenney.nl/assets/space-kit]Kenney's space kit[/url]
+[url=https://captainripley.itch.io/godot-3d-robot-character]Godot 3D Robot Character by CaptainRipley[/url]
+[/ul]
 
 [font_size=22]Sounds[/font_size]
 
-blabla
+[ul][url=https://freesound.org/people/Glitchedtones/sounds/330359/]Error sound by Glitchedtones[/url]
+[url=https://freesound.org/people/EvanBoyerman/sounds/387229/]Explosion sound by EvanBoyerman[/url]
+[/ul]
 
 [font_size=22]Others[/font_size]
 
-[ul]Font [/ul]"
+[ul][url=https://www.dafont.com/es/squarefont.font]Squarefont by Bou Fonts[/url][/ul]"
 script = ExtResource("2_jxje4")
 markdown_text = "# Credits
 
-Design, programming and music by
+Design, programming and music by [BarbeRat](https://barberat.itch.io/) and [Ergodic Efimov](https://ergodicefimov.itch.io/).
 
 Made in Godot 4 for the game jam [Brackeys Game Jam 2025.1](https://itch.io/jam/brackeys-13).
 
@@ -223,19 +227,21 @@ Listen to the soundtrack at blabla
 
 ## Assets
 
-All 3D assets and sound effects are community made and free to use.
-
 ### 3D models
 
-blabla
+- [Kenney's conveyor kit](https://kenney.nl/assets/conveyor-kit)
+- [Kenney's space station kit](https://kenney.nl/assets/space-station-kit)
+- [Kenney's space kit](https://kenney.nl/assets/space-kit)
+- [Godot 3D Robot Character by CaptainRipley](https://captainripley.itch.io/godot-3d-robot-character)
 
 ### Sounds
 
-blabla
+- [Error sound by Glitchedtones](https://freesound.org/people/Glitchedtones/sounds/330359/)
+- [Explosion sound by EvanBoyerman](https://freesound.org/people/EvanBoyerman/sounds/387229/)
 
 ### Others
 
-- Font "
+- [Squarefont by Bou Fonts](https://www.dafont.com/es/squarefont.font)"
 h1 = SubResource("Resource_35saj")
 h2 = SubResource("Resource_68q32")
 h3 = SubResource("Resource_q303c")
@@ -274,11 +280,16 @@ offset_bottom = 387.0
 bbcode_enabled = true
 text = "[font_size=36]Controls[/font_size]
 
-[ul]blablabla[/ul]"
+[ul]Arrows for movement
+[/ul]
+
+[ul]Space bar for jumping[/ul]"
 script = ExtResource("2_jxje4")
 markdown_text = "# Controls
 
-- blablabla"
+- Arrows for movement
+
+- Space bar for jumping"
 h1 = SubResource("Resource_35saj")
 h2 = SubResource("Resource_68q32")
 h3 = SubResource("Resource_q303c")

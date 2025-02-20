@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://jycw73q2bqon"]
+[gd_scene load_steps=13 format=3 uid="uid://jycw73q2bqon"]
 
 [ext_resource type="MeshLibrary" uid="uid://bndi20dmhi4x1" path="res://space_station_meshlib.tres" id="1_16ne3"]
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_jghj4"]
@@ -6,7 +6,9 @@
 [ext_resource type="MeshLibrary" uid="uid://dv123g0eu3gjf" path="res://space_kit_meshlib.tres" id="3_lchrb"]
 [ext_resource type="PackedScene" uid="uid://bayivfpb4i1bb" path="res://scenes/DeliveryZone.tscn" id="4_w7rpk"]
 [ext_resource type="PackedScene" uid="uid://c054sygn7lnl0" path="res://scenes/RepairStation.tscn" id="5_fp0i7"]
-[ext_resource type="PackedScene" uid="uid://bu1hsky5qhpda" path="res://assets/space_kit/craft_cargoB.glb" id="6_aotil"]
+[ext_resource type="PackedScene" uid="uid://deu14osf1qlp2" path="res://assets/space_kit/craft_cargoB.glb" id="6_aotil"]
+[ext_resource type="PackedScene" uid="uid://betwam7el5ebp" path="res://scenes/GameUI.tscn" id="8_s1x8d"]
+[ext_resource type="PackedScene" uid="uid://bi0m2gpwpdhum" path="res://scenes/GameOver.tscn" id="9_j5au5"]
 
 [sub_resource type="Sky" id="Sky_jle43"]
 
@@ -131,3 +133,8 @@ transform = Transform3D(1.6202, 0, 4.65661e-10, 0, 1, 0, -3.72529e-09, 0, 0.2742
 
 [node name="ItemGenTimer" type="Timer" parent="."]
 wait_time = 15.0
+
+[node name="GameUI" parent="." instance=ExtResource("8_s1x8d")]
+
+[node name="GameOver" parent="." instance=ExtResource("9_j5au5")]
+visible = false

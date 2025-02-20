@@ -22,6 +22,7 @@ var speed = SPEED
 @onready var jump_error_sound: AudioStreamPlayer = $JumpError
 @onready var bug_timer: Timer = $BugTimer
 @onready var error_timer: Timer = $ErrorTimer
+@onready var gobot: Node3D = $"Meshes/3DGodotRobot"
 
 const EXPLOSION = preload("res://scenes/Explosion.tscn")
 
@@ -52,12 +53,19 @@ func _physics_process(delta: float) -> void:
 	if direction:
 		velocity.x = direction_scaler*direction.x * speed
 		velocity.z = direction_scaler*direction.z * speed
-		$Meshes.look_at(global_position + direction, Vector3.UP)
+		$Meshes.look_at(global_position - direction, Vector3.UP)
+		gobot.get_node("AnimationPlayer").play("Run")
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
 		velocity.z = move_toward(velocity.z, 0, speed)
 	
 	move_and_slide()
+	
+	if not velocity:
+		gobot.get_node("AnimationPlayer").play("Idle")
+		
+	if not is_on_floor():
+		gobot.get_node("AnimationPlayer").play("Jump")
 
 func invert_direction():
 	direction_scaler = -1
