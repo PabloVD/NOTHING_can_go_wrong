@@ -86,15 +86,15 @@ color = Color(0, 0, 0, 1)
 
 [node name="MarkdownLabel" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 383.0
-offset_top = 195.0
-offset_right = 807.0
-offset_bottom = 286.0
+offset_left = 332.0
+offset_top = 176.0
+offset_right = 858.0
+offset_bottom = 267.0
 theme_override_font_sizes/normal_font_size = 50
 bbcode_enabled = true
-text = "Beep beep boop"
+text = "Segmentation Fault"
 script = ExtResource("2_fajaf")
-markdown_text = "Beep beep boop"
+markdown_text = "Segmentation Fault"
 h1 = SubResource("Resource_24wea")
 h2 = SubResource("Resource_xk5fo")
 h3 = SubResource("Resource_q3k3j")

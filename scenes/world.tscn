@@ -6,7 +6,7 @@
 [ext_resource type="MeshLibrary" uid="uid://dv123g0eu3gjf" path="res://space_kit_meshlib.tres" id="4_v5kte"]
 [ext_resource type="PackedScene" uid="uid://bayivfpb4i1bb" path="res://scenes/DeliveryZone.tscn" id="5_w4mfm"]
 [ext_resource type="PackedScene" uid="uid://c054sygn7lnl0" path="res://scenes/RepairStation.tscn" id="6_ihnaf"]
-[ext_resource type="PackedScene" uid="uid://bu1hsky5qhpda" path="res://assets/space_kit/craft_cargoB.glb" id="7_m46gt"]
+[ext_resource type="PackedScene" uid="uid://deu14osf1qlp2" path="res://assets/space_kit/craft_cargoB.glb" id="7_m46gt"]
 [ext_resource type="PackedScene" uid="uid://betwam7el5ebp" path="res://scenes/GameUI.tscn" id="8_51j5e"]
 [ext_resource type="PackedScene" uid="uid://bi0m2gpwpdhum" path="res://scenes/GameOver.tscn" id="9_4i7x0"]
 [ext_resource type="PackedScene" uid="uid://dwaa2lp2pb460" path="res://scenes/Item.tscn" id="10_1p7h6"]
@@ -122,7 +122,7 @@ transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 5.53848, 0.349976, -8.4
 transform = Transform3D(-0.0729302, 0, -2.99911, 0, 3, 0, 2.99911, 0, -0.0729302, 18.9631, -0.0901233, 19.7393)
 
 [node name="ItemGenTimer" type="Timer" parent="."]
-wait_time = 3.437
+wait_time = 10.0
 autostart = true
 
 [node name="GameUI" parent="." instance=ExtResource("8_51j5e")]
@@ -134,15 +134,15 @@ visible = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.092, 0.424999, -14.818)
 
 [node name="computers_spawn" parent="." instance=ExtResource("11_t57dk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5043, 0.442917, 7.44437)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.08751, 0.442917, 8.98682)
 
 [node name="mine_spawn" parent="." instance=ExtResource("11_t57dk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.2063, -0.0250001, 16.2141)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.7809, -0.0250001, 16.3301)
 
 [node name="barrels_spawn" parent="." instance=ExtResource("11_t57dk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.64, 0.424927, -10.3185)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.64, 0.424927, -9.34055)
 
 [node name="production_line_spawn" parent="." instance=ExtResource("11_t57dk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3793, 0.424927, -15.1625)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.4269, 0.424927, -14.5948)
 
 [connection signal="timeout" from="ItemGenTimer" to="." method="_on_item_gen_timer_timeout"]

@@ -21,7 +21,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.921775, -0.00636429)
 shape = SubResource("CapsuleShape3D_u8xuk")
 
 [node name="Meshes" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Meshes"]
 visible = false
@@ -48,10 +47,11 @@ stream = ExtResource("4_nuwoe")
 volume_db = -8.0
 
 [node name="BugTimer" type="Timer" parent="."]
+wait_time = 5.0
 one_shot = true
 
 [node name="ErrorTimer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 20.0
 
 [connection signal="timeout" from="BugTimer" to="." method="_on_bug_timer_timeout"]
 [connection signal="timeout" from="ErrorTimer" to="." method="_on_error_timer_timeout"]

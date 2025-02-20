@@ -23,7 +23,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	game_ui.get_node("Points").text = "Points: "+str(robot.points)
 	game_ui.get_node("Status").text = "Status: "+str(robot.status())
-	game_ui.get_node("ErrorBar").size = Vector2(robot.error_timer.time_left/5.*1100,25)  # terribly hardcoded esto eh
+	game_ui.get_node("ErrorBar").size = Vector2(robot.error_timer.time_left/20.*1100,25)  # terribly hardcoded esto eh
 	if not robot.alive:
 		game_over.visible = true
 	

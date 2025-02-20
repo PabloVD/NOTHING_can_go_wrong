@@ -9,7 +9,7 @@ albedo_color = Color(0.03, 0.0784997, 1, 0.411765)
 [sub_resource type="SphereMesh" id="SphereMesh_d77hx"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_jfwxc"]
-radius = 1.40785
+radius = 0.498075
 
 [node name="RepairStation" type="Node3D"]
 script = ExtResource("1_50053")

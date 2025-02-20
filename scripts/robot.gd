@@ -16,6 +16,7 @@ var alive := true
 var has_item := false
 var points := 0
 var speed = SPEED
+var can_get_errors := false
 
 @onready var case_empty: Node3D = $Meshes/skip
 @onready var case_full: Node3D = $"Meshes/skip-rocks"
@@ -92,7 +93,8 @@ func repair():
 	jump_fail = false
 	random_bugs_fail = false
 	direction_fail = false
-	error_timer.start()
+	if can_get_errors:
+		error_timer.start()
 	
 func get_item():
 	has_item = true
@@ -151,4 +153,5 @@ func _on_error_timer_timeout() -> void:
 			invert_direction()
 
 func start_failing():
+	can_get_errors = true
 	error_timer.start()
