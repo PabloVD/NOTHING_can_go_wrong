@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://betwam7el5ebp"]
+[gd_scene load_steps=15 format=3 uid="uid://betwam7el5ebp"]
 
 [ext_resource type="Script" path="res://addons/markdownlabel/markdownlabel.gd" id="1_nms5k"]
 [ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h1_format.gd" id="2_r70gs"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h4_format.gd" id="5_fypsx"]
 [ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h5_format.gd" id="6_fkolw"]
 [ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h6_format.gd" id="7_eifo8"]
+[ext_resource type="PackedScene" uid="uid://dand3d7v68o1w" path="res://scenes/MapLed.tscn" id="8_ujpol"]
 
 [sub_resource type="Resource" id="Resource_ycyle"]
 resource_local_to_scene = true
@@ -118,3 +119,40 @@ offset_left = 26.0
 offset_top = 606.0
 offset_right = 1126.0
 offset_bottom = 631.0
+
+[node name="Map" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 3.0
+offset_right = 36.0
+offset_bottom = 34.0
+scale = Vector2(1.64, 1.68)
+color = Color(0.44, 0.44, 0.44, 0.560784)
+
+[node name="ProductionLineRect" parent="Map" instance=ExtResource("8_ujpol")]
+layout_mode = 0
+offset_left = 4.26829
+offset_top = 2.97619
+offset_right = 14.2683
+offset_bottom = 12.9762
+
+[node name="BarrelsRect" parent="Map" instance=ExtResource("8_ujpol")]
+layout_mode = 0
+offset_left = 18.2927
+offset_top = 2.97619
+offset_right = 28.2926
+offset_bottom = 12.9762
+
+[node name="MineRect" parent="Map" instance=ExtResource("8_ujpol")]
+layout_mode = 0
+offset_left = 4.26829
+offset_top = 16.6667
+offset_right = 14.2683
+offset_bottom = 26.6666
+
+[node name="ComputersRect" parent="Map" instance=ExtResource("8_ujpol")]
+layout_mode = 0
+offset_left = 18.2927
+offset_top = 16.6667
+offset_right = 28.2927
+offset_bottom = 26.6666

@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://dand3d7v68o1w"]
+
+[ext_resource type="Script" path="res://scripts/map_led.gd" id="1_21j3c"]
+
+[node name="MapLed" type="ColorRect"]
+offset_left = 3.65854
+offset_top = 3.57143
+offset_right = 13.6585
+offset_bottom = 13.5714
+size_flags_horizontal = 0
+size_flags_vertical = 0
+color = Color(0.282, 0.169, 0.137, 0.573)
+script = ExtResource("1_21j3c")

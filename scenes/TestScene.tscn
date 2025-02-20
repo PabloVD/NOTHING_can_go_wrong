@@ -59,9 +59,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.47461, -0.022674, -5.59967)
 
 [node name="Item" parent="Scenario" instance=ExtResource("5_ntqm1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 3)
+visible = false
 
 [node name="Item2" parent="Scenario" instance=ExtResource("5_ntqm1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -3)
+visible = false
 
 [node name="DeliveryZone" parent="Scenario" instance=ExtResource("6_c4p2r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0338135, -0.022674, -6.87836)
