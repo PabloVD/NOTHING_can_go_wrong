@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://nr0mbfumagas"]
+[gd_scene load_steps=13 format=3 uid="uid://nr0mbfumagas"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_4dpj1"]
 [ext_resource type="PackedScene" uid="uid://li0y2c45rbg6" path="res://scenes/Robot.tscn" id="2_iawel"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dwaa2lp2pb460" path="res://scenes/Item.tscn" id="5_ntqm1"]
 [ext_resource type="PackedScene" uid="uid://bayivfpb4i1bb" path="res://scenes/DeliveryZone.tscn" id="6_c4p2r"]
 [ext_resource type="PackedScene" uid="uid://betwam7el5ebp" path="res://scenes/GameUI.tscn" id="7_epnlk"]
+[ext_resource type="PackedScene" uid="uid://bi0m2gpwpdhum" path="res://scenes/GameOver.tscn" id="8_xe27n"]
 
 [sub_resource type="Sky" id="Sky_rvo6v"]
 
@@ -66,3 +67,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -3)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0338135, -0.022674, -6.87836)
 
 [node name="GameUI" parent="." instance=ExtResource("7_epnlk")]
+
+[node name="GameOver" parent="." instance=ExtResource("8_xe27n")]
+visible = false

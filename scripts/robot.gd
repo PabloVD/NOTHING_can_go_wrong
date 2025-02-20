@@ -1,18 +1,21 @@
 extends CharacterBody3D
 
+# Constants
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 const FORCE_MAGNITUDE = 10.
 
 # Robot failure variables
-var direction_scaler := 1
-
 var jump_fail := false
 var direction_fail := false
 var random_bugs_fail := false
+var vel_fail := false
+var direction_scaler := 1
 
+var alive := true
 var has_item := false
 var points := 0
+var speed = SPEED
 
 @onready var case_empty: Node3D = $Meshes/skip
 @onready var case_full: Node3D = $"Meshes/skip-rocks"
@@ -23,6 +26,13 @@ var points := 0
 const EXPLOSION = preload("res://scenes/Explosion.tscn")
 
 func _physics_process(delta: float) -> void:
+	
+	if position.y<-15:
+		alive = false
+	
+	if vel_fail:
+		speed = randf_range(0,20)
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -40,12 +50,12 @@ func _physics_process(delta: float) -> void:
 	var input_dir := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
-		velocity.x = direction_scaler*direction.x * SPEED
-		velocity.z = direction_scaler*direction.z * SPEED
+		velocity.x = direction_scaler*direction.x * speed
+		velocity.z = direction_scaler*direction.z * speed
 		$Meshes.look_at(global_position + direction, Vector3.UP)
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.z = move_toward(velocity.z, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, speed)
+		velocity.z = move_toward(velocity.z, 0, speed)
 	
 	move_and_slide()
 
