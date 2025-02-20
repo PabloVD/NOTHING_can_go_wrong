@@ -93,3 +93,28 @@ h3 = SubResource("Resource_u0baf")
 h4 = SubResource("Resource_eyb12")
 h5 = SubResource("Resource_5vqfb")
 h6 = SubResource("Resource_o2mkf")
+
+[node name="Status" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 565.0
+offset_right = 1118.0
+offset_bottom = 633.0
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "Status: OK"
+script = ExtResource("1_nms5k")
+markdown_text = "Status: OK"
+h1 = SubResource("Resource_ycyle")
+h2 = SubResource("Resource_lxyv8")
+h3 = SubResource("Resource_u0baf")
+h4 = SubResource("Resource_eyb12")
+h5 = SubResource("Resource_5vqfb")
+h6 = SubResource("Resource_o2mkf")
+
+[node name="ErrorBar" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 606.0
+offset_right = 1126.0
+offset_bottom = 631.0

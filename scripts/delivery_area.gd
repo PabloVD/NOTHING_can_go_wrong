@@ -16,3 +16,6 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 		if body.has_item:
 			body.drop_item()
 			body.points += 1
+			# Start to present errors first time that an item is delivered
+			if body.points==1:
+				body.start_failing()

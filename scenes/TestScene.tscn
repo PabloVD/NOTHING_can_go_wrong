@@ -1,12 +1,12 @@
 [gd_scene load_steps=12 format=3 uid="uid://nr0mbfumagas"]
 
-[ext_resource type="Script" path="res://scripts/main.gd" id="1_lfhg8"]
-[ext_resource type="PackedScene" uid="uid://li0y2c45rbg6" path="res://scenes/Robot.tscn" id="2_qi0ao"]
-[ext_resource type="PackedScene" uid="uid://betwam7el5ebp" path="res://scenes/GameUI.tscn" id="7_r4kpe"]
-[ext_resource type="PackedScene" uid="uid://c054sygn7lnl0" path="res://scenes/RepairStation.tscn" id="10_oi6k0"]
-[ext_resource type="PackedScene" uid="uid://d4cvkwhqf8nmy" path="res://scenes/FailDebug.tscn" id="11_t3w0i"]
-[ext_resource type="PackedScene" uid="uid://dwaa2lp2pb460" path="res://scenes/Item.tscn" id="12_6fxav"]
-[ext_resource type="PackedScene" uid="uid://bayivfpb4i1bb" path="res://scenes/DeliveryZone.tscn" id="13_alklo"]
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_4dpj1"]
+[ext_resource type="PackedScene" uid="uid://li0y2c45rbg6" path="res://scenes/Robot.tscn" id="2_iawel"]
+[ext_resource type="PackedScene" uid="uid://c054sygn7lnl0" path="res://scenes/RepairStation.tscn" id="3_7iy6v"]
+[ext_resource type="PackedScene" uid="uid://d4cvkwhqf8nmy" path="res://scenes/FailDebug.tscn" id="4_1rymc"]
+[ext_resource type="PackedScene" uid="uid://dwaa2lp2pb460" path="res://scenes/Item.tscn" id="5_ntqm1"]
+[ext_resource type="PackedScene" uid="uid://bayivfpb4i1bb" path="res://scenes/DeliveryZone.tscn" id="6_c4p2r"]
+[ext_resource type="PackedScene" uid="uid://betwam7el5ebp" path="res://scenes/GameUI.tscn" id="7_epnlk"]
 
 [sub_resource type="Sky" id="Sky_rvo6v"]
 
@@ -21,8 +21,8 @@ size = Vector3(20, 1, 20)
 [sub_resource type="BoxMesh" id="BoxMesh_ydtgm"]
 size = Vector3(20, 1, 20)
 
-[node name="Main" type="Node3D"]
-script = ExtResource("1_lfhg8")
+[node name="TestScene" type="Node3D"]
+script = ExtResource("1_4dpj1")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.866025, -0.25, 0.433013, 0, 0.866025, 0.5, -0.5, -0.433013, 0.75, 4.40884, 4.81558, 10.5281)
@@ -33,7 +33,7 @@ near = 0.001
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_mmj8q")
 
-[node name="Robot" parent="." instance=ExtResource("2_qi0ao")]
+[node name="Robot" parent="." instance=ExtResource("2_iawel")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -50,19 +50,19 @@ shape = SubResource("BoxShape3D_id4pe")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Scenario/Floor"]
 mesh = SubResource("BoxMesh_ydtgm")
 
-[node name="RepairStation" parent="Scenario" instance=ExtResource("10_oi6k0")]
+[node name="RepairStation" parent="Scenario" instance=ExtResource("3_7iy6v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.19629, -0.022674, 5.58655)
 
-[node name="FailDebug" parent="Scenario" instance=ExtResource("11_t3w0i")]
+[node name="FailDebug" parent="Scenario" instance=ExtResource("4_1rymc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.47461, -0.022674, -5.59967)
 
-[node name="Item" parent="Scenario" instance=ExtResource("12_6fxav")]
+[node name="Item" parent="Scenario" instance=ExtResource("5_ntqm1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 3)
 
-[node name="Item2" parent="Scenario" instance=ExtResource("12_6fxav")]
+[node name="Item2" parent="Scenario" instance=ExtResource("5_ntqm1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -3)
 
-[node name="DeliveryZone" parent="Scenario" instance=ExtResource("13_alklo")]
+[node name="DeliveryZone" parent="Scenario" instance=ExtResource("6_c4p2r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0338135, -0.022674, -6.87836)
 
-[node name="GameUI" parent="." instance=ExtResource("7_r4kpe")]
+[node name="GameUI" parent="." instance=ExtResource("7_epnlk")]
