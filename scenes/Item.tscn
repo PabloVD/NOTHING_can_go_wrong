@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dwaa2lp2pb460"]
+[gd_scene load_steps=5 format=3 uid="uid://dwaa2lp2pb460"]
 
 [ext_resource type="Script" path="res://scripts/item.gd" id="1_lesm7"]
 [ext_resource type="PackedScene" uid="uid://djnj82exhlryh" path="res://assets/space_station/rocks.glb" id="1_p5a3c"]
+[ext_resource type="PackedScene" uid="uid://qxr6mbfe0uv6" path="res://scenes/GlowEffect.tscn" id="2_afyoh"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_epjlg"]
 height = 1.09378
@@ -9,6 +10,8 @@ radius = 0.949067
 
 [node name="Item" type="Node3D"]
 script = ExtResource("1_lesm7")
+
+[node name="GlowEffect" parent="." instance=ExtResource("2_afyoh")]
 
 [node name="rocks2" parent="." instance=ExtResource("1_p5a3c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.517375, 0, -0.482009)

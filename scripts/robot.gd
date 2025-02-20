@@ -28,7 +28,7 @@ const EXPLOSION = preload("res://scenes/Explosion.tscn")
 
 func _physics_process(delta: float) -> void:
 	
-	if position.y<-15:
+	if position.y<-2:
 		alive = false
 	
 	if vel_fail:

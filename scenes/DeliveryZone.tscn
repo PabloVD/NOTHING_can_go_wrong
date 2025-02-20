@@ -3,12 +3,12 @@
 [ext_resource type="Script" path="res://scripts/delivery_area.gd" id="1_3na83"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o2dwa"]
-albedo_color = Color(0.696667, 1, 0.48, 1)
+transparency = 1
+albedo_color = Color(0.696667, 1, 0.48, 0.392157)
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_y4nol"]
-top_radius = 2.0
-bottom_radius = 2.0
-height = 0.5
+[sub_resource type="SphereMesh" id="SphereMesh_ftd4y"]
+radius = 2.0
+height = 4.0
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_u64te"]
 radius = 2.07082
@@ -18,7 +18,7 @@ script = ExtResource("1_3na83")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 material_override = SubResource("StandardMaterial3D_o2dwa")
-mesh = SubResource("CylinderMesh_y4nol")
+mesh = SubResource("SphereMesh_ftd4y")
 
 [node name="Area3D" type="Area3D" parent="."]
 

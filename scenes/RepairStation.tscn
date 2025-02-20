@@ -3,9 +3,10 @@
 [ext_resource type="Script" path="res://scripts/repair_station.gd" id="1_50053"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_evbr6"]
-albedo_color = Color(0.03, 0.0784997, 1, 1)
+transparency = 1
+albedo_color = Color(0.03, 0.0784997, 1, 0.411765)
 
-[sub_resource type="BoxMesh" id="BoxMesh_ymfaw"]
+[sub_resource type="SphereMesh" id="SphereMesh_d77hx"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_jfwxc"]
 radius = 1.40785
@@ -15,7 +16,7 @@ script = ExtResource("1_50053")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 material_override = SubResource("StandardMaterial3D_evbr6")
-mesh = SubResource("BoxMesh_ymfaw")
+mesh = SubResource("SphereMesh_d77hx")
 
 [node name="RepairArea" type="Area3D" parent="."]
 
