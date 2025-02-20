@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://jycw73q2bqon"]
+[gd_scene load_steps=15 format=3 uid="uid://jycw73q2bqon"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_du5tp"]
 [ext_resource type="PackedScene" uid="uid://li0y2c45rbg6" path="res://scenes/Robot.tscn" id="2_idg4h"]
@@ -6,10 +6,11 @@
 [ext_resource type="MeshLibrary" uid="uid://dv123g0eu3gjf" path="res://space_kit_meshlib.tres" id="4_v5kte"]
 [ext_resource type="PackedScene" uid="uid://bayivfpb4i1bb" path="res://scenes/DeliveryZone.tscn" id="5_w4mfm"]
 [ext_resource type="PackedScene" uid="uid://c054sygn7lnl0" path="res://scenes/RepairStation.tscn" id="6_ihnaf"]
-[ext_resource type="PackedScene" uid="uid://deu14osf1qlp2" path="res://assets/space_kit/craft_cargoB.glb" id="7_m46gt"]
+[ext_resource type="PackedScene" uid="uid://bu1hsky5qhpda" path="res://assets/space_kit/craft_cargoB.glb" id="7_m46gt"]
 [ext_resource type="PackedScene" uid="uid://betwam7el5ebp" path="res://scenes/GameUI.tscn" id="8_51j5e"]
 [ext_resource type="PackedScene" uid="uid://bi0m2gpwpdhum" path="res://scenes/GameOver.tscn" id="9_4i7x0"]
 [ext_resource type="PackedScene" uid="uid://dwaa2lp2pb460" path="res://scenes/Item.tscn" id="10_1p7h6"]
+[ext_resource type="PackedScene" uid="uid://013c3vhx7eb5" path="res://scenes/ItemSpawner.tscn" id="11_t57dk"]
 
 [sub_resource type="Sky" id="Sky_jle43"]
 
@@ -120,20 +121,9 @@ transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 5.53848, 0.349976, -8.4
 [node name="craft_cargoB2" parent="." instance=ExtResource("7_m46gt")]
 transform = Transform3D(-0.0729302, 0, -2.99911, 0, 3, 0, 2.99911, 0, -0.0729302, 18.9631, -0.0901233, 19.7393)
 
-[node name="Mine" type="Marker3D" parent="."]
-transform = Transform3D(1.27287, 0, 0, 0, 1, 0, 0, 0, 0.523717, -15.6984, 0, 16.397)
-
-[node name="ComputerZone" type="Marker3D" parent="."]
-transform = Transform3D(2.62506, 0, 5.82077e-10, 0, 1, 0, -7.45058e-09, 0, 0.075229, 11.6676, 0, 6.67822)
-
-[node name="Barrels" type="Marker3D" parent="."]
-transform = Transform3D(2.06231, 0, 6.98492e-10, 0, 1, 0, -7.45058e-09, 0, 0.143644, 12.0101, 0, -11.0773)
-
-[node name="Factory" type="Marker3D" parent="."]
-transform = Transform3D(1.6202, 0, 4.65661e-10, 0, 1, 0, -3.72529e-09, 0, 0.274279, -10.7289, 0, -16.0015)
-
 [node name="ItemGenTimer" type="Timer" parent="."]
-wait_time = 15.0
+wait_time = 3.437
+autostart = true
 
 [node name="GameUI" parent="." instance=ExtResource("8_51j5e")]
 
@@ -141,4 +131,18 @@ wait_time = 15.0
 visible = false
 
 [node name="Item2" parent="." instance=ExtResource("10_1p7h6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.2197, 0.424999, -14.818)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.092, 0.424999, -14.818)
+
+[node name="computers_spawn" parent="." instance=ExtResource("11_t57dk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5043, 0.442917, 7.44437)
+
+[node name="mine_spawn" parent="." instance=ExtResource("11_t57dk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.2063, -0.0250001, 16.2141)
+
+[node name="barrels_spawn" parent="." instance=ExtResource("11_t57dk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.64, 0.424927, -10.3185)
+
+[node name="production_line_spawn" parent="." instance=ExtResource("11_t57dk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3793, 0.424927, -15.1625)
+
+[connection signal="timeout" from="ItemGenTimer" to="." method="_on_item_gen_timer_timeout"]
