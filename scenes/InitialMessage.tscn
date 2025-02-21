@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b4tfcrivfwkl4"]
+[gd_scene load_steps=21 format=3 uid="uid://b4tfcrivfwkl4"]
 
 [ext_resource type="Script" path="res://addons/markdownlabel/markdownlabel.gd" id="1_m7bxc"]
 [ext_resource type="Script" path="res://scripts/initial_message.gd" id="1_v3mkh"]
@@ -69,6 +69,66 @@ is_underlined = false
 override_font_color = false
 font_color = Color(1, 1, 1, 1)
 
+[sub_resource type="Resource" id="Resource_ys36c"]
+resource_local_to_scene = true
+script = ExtResource("2_vyrrj")
+font_size = 2.285
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_5loal"]
+resource_local_to_scene = true
+script = ExtResource("3_w543r")
+font_size = 1.714
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_a6iit"]
+resource_local_to_scene = true
+script = ExtResource("4_ooobn")
+font_size = 1.428
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_jraoq"]
+resource_local_to_scene = true
+script = ExtResource("5_r1odm")
+font_size = 1.142
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_unspi"]
+resource_local_to_scene = true
+script = ExtResource("6_y75o3")
+font_size = 1.0
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_2xvvi"]
+resource_local_to_scene = true
+script = ExtResource("7_b21iu")
+font_size = 0.857
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
 [node name="InitialMessage" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -78,13 +138,18 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_v3mkh")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Greetings" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Greetings"]
 layout_mode = 0
 offset_right = 1154.0
 offset_bottom = 651.0
 color = Color(0, 0, 0, 1)
 
-[node name="MarkdownLabel" type="RichTextLabel" parent="."]
+[node name="MarkdownLabel" type="RichTextLabel" parent="Greetings"]
 layout_mode = 0
 offset_left = 93.0
 offset_top = 82.0
@@ -94,7 +159,7 @@ theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
 text = "Greetings, comrade!
 
-You have been assigned to control the Network Operator for Technological Hybridation and Industrial Nuclear Grinding (N.O.T.H.I.N.G.), our best mechanical agent. You must carry all the items to the delivery zone.
+You have been assigned to control the Network Operational Technobot for Hazardous Industrial Nuclear Grinding (N.O.T.H.I.N.G.), our best mechanical agent. You must carry all the items to the delivery zone.
 
 But beware! Because the robot is missing its last revision session… and it can go wrong.
 
@@ -103,7 +168,7 @@ Good luck and long live the techno revolution!
 script = ExtResource("1_m7bxc")
 markdown_text = "Greetings, comrade!
 
-You have been assigned to control the Network Operator for Technological Hybridation and Industrial Nuclear Grinding (N.O.T.H.I.N.G.), our best mechanical agent. You must carry all the items to the delivery zone.
+You have been assigned to control the Network Operational Technobot for Hazardous Industrial Nuclear Grinding (N.O.T.H.I.N.G.), our best mechanical agent. You must carry all the items to the delivery zone.
 
 But beware! Because the robot is missing its last revision session… and it can go wrong.
 
@@ -116,8 +181,44 @@ h4 = SubResource("Resource_01crx")
 h5 = SubResource("Resource_04n22")
 h6 = SubResource("Resource_oyq51")
 
-[node name="Play" type="Button" parent="."]
+[node name="Proceed" type="Button" parent="Greetings"]
 layout_mode = 0
+offset_left = 91.0
+offset_top = 487.0
+offset_right = 1067.0
+offset_bottom = 564.0
+theme_override_font_sizes/font_size = 50
+text = "Proceed"
+
+[node name="Tutorial" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Tutorial"]
+offset_right = 1154.0
+offset_bottom = 651.0
+color = Color(0, 0, 0, 1)
+
+[node name="MarkdownLabel" type="RichTextLabel" parent="Tutorial"]
+offset_left = 93.0
+offset_top = 82.0
+offset_right = 1027.0
+offset_bottom = 448.0
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "Tutorial"
+script = ExtResource("1_m7bxc")
+markdown_text = "Tutorial"
+h1 = SubResource("Resource_ys36c")
+h2 = SubResource("Resource_5loal")
+h3 = SubResource("Resource_a6iit")
+h4 = SubResource("Resource_jraoq")
+h5 = SubResource("Resource_unspi")
+h6 = SubResource("Resource_2xvvi")
+
+[node name="Play" type="Button" parent="Tutorial"]
 offset_left = 91.0
 offset_top = 487.0
 offset_right = 1067.0
@@ -125,4 +226,5 @@ offset_bottom = 564.0
 theme_override_font_sizes/font_size = 50
 text = "Lets go!"
 
-[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Greetings/Proceed" to="." method="_on_proceed_pressed"]
+[connection signal="pressed" from="Tutorial/Play" to="." method="_on_play_pressed"]
