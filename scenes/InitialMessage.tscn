@@ -153,6 +153,7 @@ offset_bottom = 651.0
 color = Color(0, 0, 0, 0.654902)
 
 [node name="Greetings" type="Control" parent="."]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -199,7 +200,6 @@ theme_override_font_sizes/font_size = 50
 text = "Proceed"
 
 [node name="Tutorial" type="Control" parent="."]
-visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -207,9 +207,9 @@ offset_bottom = 40.0
 [node name="MarkdownLabel" type="RichTextLabel" parent="Tutorial"]
 layout_mode = 0
 offset_left = 99.0
-offset_top = 80.0
+offset_top = 97.0
 offset_right = 744.0
-offset_bottom = 516.0
+offset_bottom = 533.0
 theme_override_font_sizes/normal_font_size = 25
 bbcode_enabled = true
 text = "There are 4 drop points where you must collect the packages. You need to deliver 20 packages.
@@ -250,9 +250,9 @@ anchor_top = 1.2
 anchor_right = 17.55
 anchor_bottom = 1.2
 offset_left = 77.9999
-offset_top = 37.0
+offset_top = 54.0
 offset_right = 437.0
-offset_bottom = 428.0
+offset_bottom = 445.0
 scale = Vector2(0.8, 0.8)
 
 [node name="Sprite2D" type="Sprite2D" parent="Tutorial/Map"]
@@ -291,6 +291,26 @@ offset_right = 258.0
 offset_bottom = 238.0
 scale = Vector2(2, 2)
 color = Color(1, 0, 0, 1)
+
+[node name="Repair" type="Label" parent="Tutorial/Map"]
+layout_mode = 0
+offset_left = 175.0
+offset_top = 13.75
+offset_right = 267.0
+offset_bottom = 54.75
+text = "Repair
+zone"
+horizontal_alignment = 1
+
+[node name="Delivery" type="Label" parent="Tutorial/Map"]
+layout_mode = 0
+offset_left = 251.25
+offset_top = 306.25
+offset_right = 343.25
+offset_bottom = 347.25
+text = "Delivery
+zone"
+horizontal_alignment = 1
 
 [connection signal="pressed" from="Greetings/Proceed" to="." method="_on_proceed_pressed"]
 [connection signal="pressed" from="Tutorial/Play" to="." method="_on_play_pressed"]
