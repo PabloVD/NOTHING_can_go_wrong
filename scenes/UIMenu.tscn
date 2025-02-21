@@ -198,19 +198,19 @@ offset_right = 1027.0
 offset_bottom = 387.0
 theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true
-text = "[font_size=36]Credits[/font_size]
+text = "[font_size=45]Credits[/font_size]
 
 Design and programming by [url=https://barberat.itch.io/]BarbeRat[/url] and [url=https://ergodicefimov.itch.io/]Ergodic Efimov[/url].
 
 Music by [url=https://ergodicefimov.itch.io/]Ergodic Efimov[/url]. Listen to the soundtrack at [url=]Soundcloud[/url].
 
-Made in Godot 4 in 5 days for the game jam [url=https://itch.io/jam/brackeys-13]Brackeys Game Jam 2025.1[/url].
+Made in Godot 4 in 5 days for the [url=https://itch.io/jam/brackeys-13]Brackeys Game Jam 2025.1[/url].
 
-[font_size=27]Assets[/font_size]
+[font_size=34]Assets[/font_size]
 
 All employed assets are made by the community and free to use.
 
-[font_size=22]3D models[/font_size]
+[font_size=28]3D models[/font_size]
 
 [ul][url=https://kenney.nl/assets/conveyor-kit]Kenney's conveyor kit[/url]
 [url=https://kenney.nl/assets/space-station-kit]Kenney's space station kit[/url]
@@ -218,13 +218,13 @@ All employed assets are made by the community and free to use.
 [url=https://captainripley.itch.io/godot-3d-robot-character]Godot 3D Robot Character by CaptainRipley[/url]
 [/ul]
 
-[font_size=22]Sounds[/font_size]
+[font_size=28]Sounds[/font_size]
 
 [ul][url=https://freesound.org/people/Glitchedtones/sounds/330359/]Error sound by Glitchedtones[/url]
 [url=https://freesound.org/people/EvanBoyerman/sounds/387229/]Explosion sound by EvanBoyerman[/url]
 [/ul]
 
-[font_size=22]Others[/font_size]
+[font_size=28]Others[/font_size]
 
 [ul][url=https://www.dafont.com/es/squarefont.font]Squarefont by Bou Fonts[/url][/ul]"
 script = ExtResource("2_jxje4")
@@ -234,7 +234,7 @@ Design and programming by [BarbeRat](https://barberat.itch.io/) and [Ergodic Efi
 
 Music by [Ergodic Efimov](https://ergodicefimov.itch.io/). Listen to the soundtrack at [Soundcloud]().
 
-Made in Godot 4 in 5 days for the game jam [Brackeys Game Jam 2025.1](https://itch.io/jam/brackeys-13).
+Made in Godot 4 in 5 days for the [Brackeys Game Jam 2025.1](https://itch.io/jam/brackeys-13).
 
 ## Assets
 
@@ -292,7 +292,7 @@ offset_right = 808.0
 offset_bottom = 387.0
 theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true
-text = "[font_size=36]Controls[/font_size]
+text = "[font_size=45]Controls[/font_size]
 
 [ul]Arrows or WASD for movement
 [/ul]

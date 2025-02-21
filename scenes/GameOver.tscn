@@ -82,7 +82,7 @@ script = ExtResource("1_3nolw")
 layout_mode = 0
 offset_right = 1154.0
 offset_bottom = 651.0
-color = Color(0, 0, 0, 1)
+color = Color(0, 0, 0, 0.666667)
 
 [node name="MarkdownLabel" type="RichTextLabel" parent="."]
 layout_mode = 0
