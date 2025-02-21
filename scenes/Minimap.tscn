@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=3 uid="uid://w1gpagju38cn"]
+
+[ext_resource type="Texture2D" uid="uid://cu64ctb84rlp" path="res://assets/images/minimap.png" id="1_e827p"]
+[ext_resource type="PackedScene" uid="uid://dand3d7v68o1w" path="res://scenes/MapLed.tscn" id="4_f05bf"]
+
+[node name="Minimap" type="CanvasLayer"]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 100.0
+offset_bottom = 100.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(80, 80)
+render_target_update_mode = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="SubViewportContainer/SubViewport"]
+texture = ExtResource("1_e827p")
+
+[node name="Camera2D" type="Camera2D" parent="SubViewportContainer/SubViewport"]
+zoom = Vector2(0.1, 0.1)
+
+[node name="ProductionLineRect" parent="." instance=ExtResource("4_f05bf")]
+offset_left = 28.0
+offset_top = 27.0
+offset_right = 38.0
+offset_bottom = 37.0
+
+[node name="BarrelsRect" parent="." instance=ExtResource("4_f05bf")]
+offset_left = 77.0
+offset_top = 41.0
+offset_right = 86.9999
+offset_bottom = 51.0
+
+[node name="MineRect" parent="." instance=ExtResource("4_f05bf")]
+offset_left = 30.0
+offset_top = 78.0
+offset_right = 40.0
+offset_bottom = 87.9999
+
+[node name="ComputersRect" parent="." instance=ExtResource("4_f05bf")]
+offset_left = 73.0
+offset_top = 64.0
+offset_right = 83.0
+offset_bottom = 73.9999

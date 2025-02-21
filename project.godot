@@ -13,7 +13,7 @@ config_version=5
 config/name="NOTHING can go wrong"
 run/main_scene="res://scenes/World.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-config/icon="res://nothing_icon.png"
+config/icon="res://assets/images/nothing_icon.png"
 
 [autoload]
 
