@@ -130,3 +130,4 @@ draw_pass_1 = SubResource("SphereMesh_8h6g2")
 
 [node name="ExplosionSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_mjhg8")
+volume_db = -10.0

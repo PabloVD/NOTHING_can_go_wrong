@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://wutvim7gvym4"]
+[gd_scene load_steps=16 format=3 uid="uid://wutvim7gvym4"]
 
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_apolt"]
 [ext_resource type="Script" path="res://addons/markdownlabel/markdownlabel.gd" id="2_jxje4"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h4_format.gd" id="6_cocop"]
 [ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h5_format.gd" id="7_5pqdc"]
 [ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h6_format.gd" id="8_tr7eo"]
+[ext_resource type="AudioStream" uid="uid://d2vp67x87wils" path="res://assets/sounds/NOTHING_intro.mp3" id="9_iiw4y"]
 
 [sub_resource type="Resource" id="Resource_35saj"]
 resource_local_to_scene = true
@@ -305,6 +306,10 @@ offset_right = 242.0
 offset_bottom = 550.0
 theme_override_font_sizes/font_size = 20
 text = "Fullscreen"
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_iiw4y")
+autoplay = true
 
 [connection signal="pressed" from="Menus/MainMenu/MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Menus/MainMenu/MarginContainer/VBoxContainer/Controls" to="." method="_on_controls_pressed"]
