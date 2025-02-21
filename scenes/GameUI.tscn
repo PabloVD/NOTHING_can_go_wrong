@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://betwam7el5ebp"]
+[gd_scene load_steps=16 format=3 uid="uid://betwam7el5ebp"]
 
 [ext_resource type="Script" path="res://addons/markdownlabel/markdownlabel.gd" id="1_nms5k"]
 [ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h1_format.gd" id="2_r70gs"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h4_format.gd" id="5_fypsx"]
 [ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h5_format.gd" id="6_fkolw"]
 [ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h6_format.gd" id="7_eifo8"]
+[ext_resource type="PackedScene" uid="uid://w1gpagju38cn" path="res://scenes/Minimap.tscn" id="8_7wdt3"]
 [ext_resource type="PackedScene" uid="uid://dand3d7v68o1w" path="res://scenes/MapLed.tscn" id="8_ujpol"]
 
 [sub_resource type="Resource" id="Resource_ycyle"]
@@ -120,7 +121,10 @@ offset_top = 606.0
 offset_right = 1126.0
 offset_bottom = 631.0
 
+[node name="Minimap" parent="." instance=ExtResource("8_7wdt3")]
+
 [node name="Map" type="ColorRect" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 13.0
 offset_top = 13.0
