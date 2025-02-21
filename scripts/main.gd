@@ -1,6 +1,7 @@
 extends Node3D
 
-var points := 0
+const POINTS_TO_WIN := 20
+
 @onready var game_ui: Control = $GameUI
 @onready var robot: CharacterBody3D = $Robot
 @onready var game_over: Control = $GameOver
@@ -32,12 +33,11 @@ func _process(delta: float) -> void:
 		Globals.led_status['production']
 		]
 	
-	if not robot.alive:
-		game_over.visible = true
-		Globals.game_over()
-	if led_status.any(func(item): item>3):
-		game_over.visible = true
-		Globals.game_over()
+	if not robot.alive or led_status.any(func(item): item>3):
+		lose()
+		
+	if robot.points>=POINTS_TO_WIN:
+		win()
 
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):
@@ -58,3 +58,10 @@ func _on_item_gen_timer_timeout() -> void:
 		var id_spawn = available_spawns.pick_random()
 		var spawner = spawns[id_spawn]
 		spawner.spawn_item()
+
+func lose():
+	game_over.visible = true
+	Globals.game_over()
+
+func win():
+	$Success.visible = true

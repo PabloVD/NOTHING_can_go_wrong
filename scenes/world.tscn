@@ -7,12 +7,12 @@
 [ext_resource type="MeshLibrary" uid="uid://dv123g0eu3gjf" path="res://space_kit_meshlib.tres" id="4_v5kte"]
 [ext_resource type="PackedScene" uid="uid://bayivfpb4i1bb" path="res://scenes/DeliveryZone.tscn" id="5_w4mfm"]
 [ext_resource type="PackedScene" uid="uid://c054sygn7lnl0" path="res://scenes/RepairStation.tscn" id="6_ihnaf"]
-[ext_resource type="PackedScene" uid="uid://bu1hsky5qhpda" path="res://assets/space_kit/craft_cargoB.glb" id="7_m46gt"]
+[ext_resource type="PackedScene" uid="uid://deu14osf1qlp2" path="res://assets/space_kit/craft_cargoB.glb" id="7_m46gt"]
 [ext_resource type="PackedScene" uid="uid://betwam7el5ebp" path="res://scenes/GameUI.tscn" id="8_51j5e"]
 [ext_resource type="PackedScene" uid="uid://bi0m2gpwpdhum" path="res://scenes/GameOver.tscn" id="9_4i7x0"]
-[ext_resource type="PackedScene" uid="uid://dwaa2lp2pb460" path="res://scenes/Item.tscn" id="10_1p7h6"]
 [ext_resource type="PackedScene" uid="uid://013c3vhx7eb5" path="res://scenes/ItemSpawner.tscn" id="11_t57dk"]
-[ext_resource type="AudioStream" uid="uid://b76jjyix4v4nq" path="res://assets/sounds/NOTHING.mp3" id="12_my2qj"]
+[ext_resource type="AudioStream" uid="uid://ivaynohwtkl6" path="res://assets/sounds/NOTHING.mp3" id="12_my2qj"]
+[ext_resource type="PackedScene" uid="uid://cls810pghh87a" path="res://scenes/Success.tscn" id="13_tkwf5"]
 [ext_resource type="PackedScene" uid="uid://btfckxwjae5xo" path="res://scenes/PauseMenu.tscn" id="13_xm281"]
 
 [sub_resource type="Sky" id="Sky_jle43"]
@@ -22,6 +22,7 @@ background_mode = 1
 background_color = Color(0.885825, 0.562908, 0.401516, 1)
 sky = SubResource("Sky_jle43")
 fog_mode = 1
+fog_light_color = Color(0, 0, 0, 1)
 fog_light_energy = 0.0
 fog_density = 1.0
 volumetric_fog_density = 0.0
@@ -208,9 +209,6 @@ autostart = true
 [node name="GameOver" parent="." instance=ExtResource("9_4i7x0")]
 visible = false
 
-[node name="Item2" parent="." instance=ExtResource("10_1p7h6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.092, 0.424999, -14.818)
-
 [node name="computers_spawn" parent="." instance=ExtResource("11_t57dk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.08751, 0.442917, 8.98682)
 
@@ -229,6 +227,9 @@ stream = ExtResource("12_my2qj")
 autoplay = true
 
 [node name="PauseMenu" parent="." instance=ExtResource("13_xm281")]
+visible = false
+
+[node name="Success" parent="." instance=ExtResource("13_tkwf5")]
 visible = false
 
 [node name="tube help" type="StaticBody3D" parent="."]
