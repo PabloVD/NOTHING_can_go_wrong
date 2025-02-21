@@ -2,14 +2,15 @@ extends CharacterBody3D
 
 # Constants
 const SPEED = 5.0
+const SPEED_RUN = 7.0
 const JUMP_VELOCITY = 4.5
 const FORCE_MAGNITUDE = 10.
 
 # Robot failure variables
 var jump_fail := false
+var run_fail := false
 var direction_fail := false
 var random_bugs_fail := false
-var vel_fail := false
 var direction_scaler := 1
 
 var alive := true
@@ -17,6 +18,7 @@ var has_item := false
 var points := 0
 var speed = SPEED
 var can_get_errors := false
+var running := true
 
 @onready var case_empty: Node3D = $Meshes/skip
 @onready var case_full: Node3D = $"Meshes/skip-rocks"
@@ -29,11 +31,16 @@ const EXPLOSION = preload("res://scenes/Explosion.tscn")
 
 func _physics_process(delta: float) -> void:
 	
+	# die if falling
 	if position.y<-2:
 		alive = false
 	
-	if vel_fail:
-		speed = randf_range(0,20)
+	if Input.is_action_pressed("run") and not run_fail:
+		running = true
+		speed = SPEED_RUN
+	else:
+		running = false
+		speed = SPEED
 	
 	# Add the gravity.
 	if not is_on_floor():
@@ -55,7 +62,10 @@ func _physics_process(delta: float) -> void:
 		velocity.x = direction_scaler*direction.x * speed
 		velocity.z = direction_scaler*direction.z * speed
 		$Meshes.look_at(global_position - direction, Vector3.UP)
-		gobot.get_node("AnimationPlayer").play("Run")
+		if running:
+			gobot.get_node("AnimationPlayer").play("Sprint")
+		else:
+			gobot.get_node("AnimationPlayer").play("Run")
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
 		velocity.z = move_toward(velocity.z, 0, speed)
@@ -68,12 +78,29 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		gobot.get_node("AnimationPlayer").play("Jump")
 
+func get_item():
+	has_item = true
+	case_empty.visible = false
+	case_full.visible = true
+	
+func drop_item():
+	has_item = false
+	case_empty.visible = true
+	case_full.visible = false
+
+#---
+# Robot errors methods
+#---
+
 func invert_direction():
 	direction_scaler = -1
 	direction_fail = true
 	
 func jump_failure():
 	jump_fail = true
+
+func run_failure():
+	run_fail = true
 
 func random_bugs():
 	apply_random_force()
@@ -91,23 +118,14 @@ func repair():
 	print("Repaired!")
 	direction_scaler = 1
 	jump_fail = false
+	run_fail = false
 	random_bugs_fail = false
 	direction_fail = false
 	if can_get_errors:
 		error_timer.start()
-	
-func get_item():
-	has_item = true
-	case_empty.visible = false
-	case_full.visible = true
-	
-func drop_item():
-	has_item = false
-	case_empty.visible = true
-	case_full.visible = false
 
 func _on_bug_timer_timeout() -> void:
-	if random_bugs_fail:
+	if random_bugs_fail and alive:
 		random_bugs()
 
 func set_bug_timer(ti=2, tf=5):
@@ -115,13 +133,15 @@ func set_bug_timer(ti=2, tf=5):
 	bug_timer.start()
 
 func status():
-	if not random_bugs_fail and not jump_fail and not direction_fail:
+	if not random_bugs_fail and not jump_fail and not run_fail and not direction_fail:
 		return "OK"
 	var bugs = []
 	if random_bugs_fail:
 		bugs.append("random bugs")
 	if jump_fail:
-		bugs.append("jump blocked")
+		bugs.append("jump disabled")
+	if run_fail:
+		bugs.append("run blocked")
 	if direction_fail:
 		bugs.append("direction failing")
 	var status = ""
@@ -139,6 +159,8 @@ func _on_error_timer_timeout() -> void:
 		possible_bugs.append("broken")
 	if not jump_fail:
 		possible_bugs.append("jump")
+	if not run_fail:
+		possible_bugs.append("run")
 	if not direction_fail:
 		possible_bugs.append("direction")
 	
@@ -149,8 +171,13 @@ func _on_error_timer_timeout() -> void:
 			random_bugs()
 		elif bug=="jump":
 			jump_failure()
+		elif bug=="run":
+			run_failure()
 		elif bug=="direction":
 			invert_direction()
+	
+	else:
+		alive=false
 
 func start_failing():
 	can_get_errors = true

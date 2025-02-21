@@ -3,6 +3,8 @@ extends Control
 @onready var mainmenu = $Menus/MainMenu
 @onready var credits = $Menus/Credits
 @onready var controls = $Menus/Controls
+@onready var initial_message: Control = $InitialMessage
+@onready var menus: Control = $Menus
 
 func _ready() -> void:
 	credits.visible = false
@@ -16,7 +18,8 @@ func _ready() -> void:
 		$Menus/Fullscreen.button_pressed = false
 
 func _on_play_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/InitialMessage.tscn")
+	initial_message.visible = true
+	menus.visible = false
 
 func _on_controls_pressed() -> void:
 	controls.visible = true

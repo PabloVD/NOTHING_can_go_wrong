@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://wutvim7gvym4"]
+[gd_scene load_steps=17 format=3 uid="uid://wutvim7gvym4"]
 
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_apolt"]
 [ext_resource type="Script" path="res://addons/markdownlabel/markdownlabel.gd" id="2_jxje4"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h4_format.gd" id="6_cocop"]
 [ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h5_format.gd" id="7_5pqdc"]
 [ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h6_format.gd" id="8_tr7eo"]
+[ext_resource type="PackedScene" uid="uid://b4tfcrivfwkl4" path="res://scenes/InitialMessage.tscn" id="9_63epo"]
 [ext_resource type="AudioStream" uid="uid://d2vp67x87wils" path="res://assets/sounds/NOTHING_intro.mp3" id="9_iiw4y"]
 
 [sub_resource type="Resource" id="Resource_35saj"]
@@ -192,13 +193,15 @@ offset_bottom = 387.0
 bbcode_enabled = true
 text = "[font_size=36]Credits[/font_size]
 
-Design, programming and music by [url=https://barberat.itch.io/]BarbeRat[/url] and [url=https://ergodicefimov.itch.io/]Ergodic Efimov[/url].
+Design and programming by [url=https://barberat.itch.io/]BarbeRat[/url] and [url=https://ergodicefimov.itch.io/]Ergodic Efimov[/url].
 
-Made in Godot 4 for the game jam [url=https://itch.io/jam/brackeys-13]Brackeys Game Jam 2025.1[/url].
+Music by [url=https://ergodicefimov.itch.io/]Ergodic Efimov[/url]. Listen to the soundtrack at [url=]Soundcloud[/url].
 
-Listen to the soundtrack at blabla
+Made in Godot 4 in 5 days for the game jam [url=https://itch.io/jam/brackeys-13]Brackeys Game Jam 2025.1[/url].
 
 [font_size=27]Assets[/font_size]
+
+All employed assets are made by the community and free to use.
 
 [font_size=22]3D models[/font_size]
 
@@ -220,13 +223,15 @@ Listen to the soundtrack at blabla
 script = ExtResource("2_jxje4")
 markdown_text = "# Credits
 
-Design, programming and music by [BarbeRat](https://barberat.itch.io/) and [Ergodic Efimov](https://ergodicefimov.itch.io/).
+Design and programming by [BarbeRat](https://barberat.itch.io/) and [Ergodic Efimov](https://ergodicefimov.itch.io/).
 
-Made in Godot 4 for the game jam [Brackeys Game Jam 2025.1](https://itch.io/jam/brackeys-13).
+Music by [Ergodic Efimov](https://ergodicefimov.itch.io/). Listen to the soundtrack at [Soundcloud]().
 
-Listen to the soundtrack at blabla
+Made in Godot 4 in 5 days for the game jam [Brackeys Game Jam 2025.1](https://itch.io/jam/brackeys-13).
 
 ## Assets
+
+All employed assets are made by the community and free to use.
 
 ### 3D models
 
@@ -281,16 +286,21 @@ offset_bottom = 387.0
 bbcode_enabled = true
 text = "[font_size=36]Controls[/font_size]
 
-[ul]Arrows for movement
+[ul]Arrows or WASD for movement
 [/ul]
 
-[ul]Space bar for jumping[/ul]"
+[ul]Space bar for jumping
+[/ul]
+
+[ul]Shift for running[/ul]"
 script = ExtResource("2_jxje4")
 markdown_text = "# Controls
 
-- Arrows for movement
+- Arrows or WASD for movement
 
-- Space bar for jumping"
+- Space bar for jumping
+
+- Shift for running"
 h1 = SubResource("Resource_35saj")
 h2 = SubResource("Resource_68q32")
 h3 = SubResource("Resource_q303c")
@@ -306,6 +316,10 @@ offset_right = 242.0
 offset_bottom = 550.0
 theme_override_font_sizes/font_size = 20
 text = "Fullscreen"
+
+[node name="InitialMessage" parent="." instance=ExtResource("9_63epo")]
+visible = false
+layout_mode = 1
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_iiw4y")
