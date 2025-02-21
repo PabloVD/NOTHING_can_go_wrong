@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_apolt"]
 [ext_resource type="Script" path="res://addons/markdownlabel/markdownlabel.gd" id="2_jxje4"]
-[ext_resource type="Texture2D" uid="uid://bb4bn7kelwk8e" path="res://assets/images/background.png" id="2_vytv8"]
+[ext_resource type="Texture2D" uid="uid://cw0isqckimjac" path="res://assets/images/background.png" id="2_vytv8"]
 [ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h1_format.gd" id="3_v11js"]
 [ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h2_format.gd" id="4_8sfhg"]
 [ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h3_format.gd" id="5_7q5w4"]
@@ -10,7 +10,7 @@
 [ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h5_format.gd" id="7_5pqdc"]
 [ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h6_format.gd" id="8_tr7eo"]
 [ext_resource type="PackedScene" uid="uid://b4tfcrivfwkl4" path="res://scenes/InitialMessage.tscn" id="9_63epo"]
-[ext_resource type="AudioStream" uid="uid://d2vp67x87wils" path="res://assets/sounds/NOTHING_intro.mp3" id="9_iiw4y"]
+[ext_resource type="AudioStream" uid="uid://8b2j53amndpq" path="res://assets/sounds/NOTHING_intro.mp3" id="9_iiw4y"]
 
 [sub_resource type="Resource" id="Resource_35saj"]
 resource_local_to_scene = true
