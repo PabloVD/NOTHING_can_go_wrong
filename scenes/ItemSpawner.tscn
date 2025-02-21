@@ -4,3 +4,8 @@
 
 [node name="ItemSpawner" type="Marker3D"]
 script = ExtResource("1_4uwcn")
+
+[node name="DecayTimer" type="Timer" parent="."]
+wait_time = 15.0
+
+[connection signal="timeout" from="DecayTimer" to="." method="_on_decay_timer_timeout"]
