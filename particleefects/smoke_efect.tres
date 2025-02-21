@@ -1,0 +1,32 @@
+[gd_resource type="ParticleProcessMaterial" load_steps=5 format=3 uid="uid://hcditmedimx1"]
+
+[sub_resource type="Curve" id="Curve_bqaxt"]
+_data = [Vector2(0, 0.43956), 0.0, 0.0, 0, 0, Vector2(0.65942, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.56044), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_d4van"]
+curve = SubResource("Curve_bqaxt")
+
+[sub_resource type="Curve" id="Curve_nwesc"]
+_data = [Vector2(0.0632911, 0.021978), 0.0, 0.0, 0, 0, Vector2(0.291139, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_84x48"]
+curve = SubResource("Curve_nwesc")
+
+[resource]
+emission_shape = 3
+emission_box_extents = Vector3(2, 1, 1.2)
+direction = Vector3(0, -1, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = -73.56
+linear_accel_max = -44.82
+radial_accel_min = -10.35
+radial_accel_max = 18.39
+scale_min = 0.5
+scale_max = 4.0
+scale_curve = SubResource("CurveTexture_84x48")
+color = Color(0.142103, 0.140479, 0.13561, 1)
+alpha_curve = SubResource("CurveTexture_d4van")

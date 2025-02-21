@@ -1,7 +1,7 @@
 [gd_scene load_steps=22 format=3 uid="uid://cl6tmf0albeki"]
 
 [ext_resource type="Script" path="res://scripts/explosion.gd" id="1_xrpa7"]
-[ext_resource type="AudioStream" uid="uid://dyxb2pkuqtuqy" path="res://assets/sounds/387229__evanboyerman__explosion-closenear-mixed.wav" id="2_mjhg8"]
+[ext_resource type="AudioStream" uid="uid://dvtrksnl1dae2" path="res://assets/sounds/387229__evanboyerman__explosion-closenear-mixed.wav" id="2_mjhg8"]
 
 [sub_resource type="Curve" id="Curve_hcl7m"]
 _data = [Vector2(0.658228, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -34,14 +34,14 @@ bottom_radius = 0.0
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.740506, 0.78022), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_d4van"]
+[sub_resource type="CurveTexture" id="CurveTexture_n4s8p"]
 curve = SubResource("Curve_twxwo")
 
 [sub_resource type="Curve" id="Curve_g5dto"]
 _data = [Vector2(0.0632911, 0.021978), 0.0, 0.0, 0, 0, Vector2(0.291139, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_84x48"]
+[sub_resource type="CurveTexture" id="CurveTexture_7rm5u"]
 curve = SubResource("Curve_g5dto")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dtvah"]
@@ -53,16 +53,16 @@ initial_velocity_max = 2.0
 gravity = Vector3(0, 5, 0)
 scale_min = 0.5
 scale_max = 1.5
-scale_curve = SubResource("CurveTexture_84x48")
+scale_curve = SubResource("CurveTexture_7rm5u")
 color = Color(0.19, 0.187593, 0.1824, 1)
-alpha_curve = SubResource("CurveTexture_d4van")
+alpha_curve = SubResource("CurveTexture_n4s8p")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d7a5s"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n1vml"]
 transparency = 1
 vertex_color_use_as_albedo = true
 
 [sub_resource type="SphereMesh" id="SphereMesh_8h6g2"]
-material = SubResource("StandardMaterial3D_d7a5s")
+material = SubResource("StandardMaterial3D_n1vml")
 radial_segments = 8
 rings = 4
 

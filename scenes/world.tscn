@@ -1,7 +1,8 @@
-[gd_scene load_steps=20 format=3 uid="uid://jycw73q2bqon"]
+[gd_scene load_steps=30 format=3 uid="uid://jycw73q2bqon"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_du5tp"]
 [ext_resource type="PackedScene" uid="uid://li0y2c45rbg6" path="res://scenes/Robot.tscn" id="2_idg4h"]
+[ext_resource type="Material" uid="uid://hcditmedimx1" path="res://particleefects/smoke_efect.tres" id="3_77lo0"]
 [ext_resource type="MeshLibrary" uid="uid://bndi20dmhi4x1" path="res://space_station_meshlib.tres" id="3_ya7dw"]
 [ext_resource type="MeshLibrary" uid="uid://dv123g0eu3gjf" path="res://space_kit_meshlib.tres" id="4_v5kte"]
 [ext_resource type="PackedScene" uid="uid://bayivfpb4i1bb" path="res://scenes/DeliveryZone.tscn" id="5_w4mfm"]
@@ -23,13 +24,58 @@ sky = SubResource("Sky_jle43")
 fog_mode = 1
 fog_light_energy = 0.0
 fog_density = 1.0
-volumetric_fog_enabled = true
 volumetric_fog_density = 0.0
 
-[sub_resource type="FogMaterial" id="FogMaterial_cppup"]
-density = 6.8318
-height_falloff = 0.00194011
-edge_fade = 0.16245
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d7a5s"]
+transparency = 1
+vertex_color_use_as_albedo = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_0ih2q"]
+material = SubResource("StandardMaterial3D_d7a5s")
+radial_segments = 8
+rings = 3
+
+[sub_resource type="Curve" id="Curve_bqaxt"]
+_data = [Vector2(0, 0.43956), 0.0, 0.0, 0, 0, Vector2(0.65942, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.56044), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_d4van"]
+curve = SubResource("Curve_bqaxt")
+
+[sub_resource type="Curve" id="Curve_nwesc"]
+_data = [Vector2(0.0632911, 0.021978), 0.0, 0.0, 0, 0, Vector2(0.291139, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_84x48"]
+curve = SubResource("Curve_nwesc")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6h0vb"]
+emission_shape = 3
+emission_box_extents = Vector3(2, 1, 2)
+direction = Vector3(0, -1, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = -73.56
+linear_accel_max = -44.82
+radial_accel_min = -10.35
+radial_accel_max = 18.39
+scale_min = 0.5
+scale_max = 4.0
+scale_curve = SubResource("CurveTexture_84x48")
+color = Color(0.142103, 0.140479, 0.13561, 1)
+alpha_curve = SubResource("CurveTexture_d4van")
+
+[sub_resource type="SphereMesh" id="SphereMesh_pgr1i"]
+material = SubResource("StandardMaterial3D_d7a5s")
+radial_segments = 8
+rings = 4
+
+[sub_resource type="BoxMesh" id="BoxMesh_teeap"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2comi"]
+transparency = 1
+albedo_color = Color(0.14, 0.142, 0.136, 0.973)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pqoga"]
 size = Vector3(0.963, 1, 1.43457)
@@ -61,15 +107,34 @@ transform = Transform3D(1, 0, 0, 0, 0.958998, 0.283413, 0, -0.283413, 0.958998, 
 light_color = Color(1, 0.708868, 0.657901, 1)
 shadow_blur = 0.619
 
-[node name="FogVolume" type="FogVolume" parent="WorldEnvironment"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.30408, -3.42481, 11.8635)
-size = Vector3(19.1473, 4.24963, 13.4904)
-material = SubResource("FogMaterial_cppup")
+[node name="Smoke" type="GPUParticles3D" parent="WorldEnvironment"]
+transform = Transform3D(4.21779, 0, 0, 0, 1, 0, 0, 0, 4.62449, -1.04015, -2.86943, 12.4247)
+amount = 300
+speed_scale = 0.39
+randomness = 1.0
+fixed_fps = 60
+visibility_aabb = AABB(-2, -4, -2, 4, 8, 4)
+process_material = ExtResource("3_77lo0")
+draw_pass_1 = SubResource("SphereMesh_0ih2q")
 
-[node name="FogVolume2" type="FogVolume" parent="WorldEnvironment"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.28449, -3.17542, -7.40185)
-size = Vector3(28.7765, 3.98193, 25.6263)
-material = SubResource("FogMaterial_cppup")
+[node name="Smoke2" type="GPUParticles3D" parent="WorldEnvironment"]
+transform = Transform3D(7.38341, 0, 0, 0, 1, 0, 0, 0, 5.41268, -1.47036, -2.2572, -5.05426)
+amount = 700
+speed_scale = 0.39
+fixed_fps = 60
+visibility_aabb = AABB(-2, -4, -2, 4, 8, 4)
+process_material = SubResource("ParticleProcessMaterial_6h0vb")
+draw_pass_1 = SubResource("SphereMesh_pgr1i")
+
+[node name="pit" type="MeshInstance3D" parent="WorldEnvironment"]
+transform = Transform3D(31.9612, 0, 0, 0, 1, 0, 0, 0, 24.8747, -1.24725, -1.53967, -6.82355)
+mesh = SubResource("BoxMesh_teeap")
+surface_material_override/0 = SubResource("StandardMaterial3D_2comi")
+
+[node name="pit2" type="MeshInstance3D" parent="WorldEnvironment"]
+transform = Transform3D(17.1722, 0, 0, 0, 3.46348, 0, 0, 0, 13.7315, -1.12262, -3.18396, 11.9074)
+mesh = SubResource("BoxMesh_teeap")
+surface_material_override/0 = SubResource("StandardMaterial3D_2comi")
 
 [node name="floor and items" type="GridMap" parent="."]
 mesh_library = ExtResource("3_ya7dw")
@@ -114,6 +179,7 @@ data = {
 "cells": PackedInt32Array(720889, 17, 458804, 720888, 23, 262196, 720887, 26, 262196, 720886, 26, 262196, 720883, 20, 458804, 720882, 20, 458804, 720881, 19, 458804, 720880, 19, 458804, 720879, 19, 458804, 720878, 19, 458804, 720877, 18, 458804, 720884, 23, 458804, 720885, 24, 458804, 720885, 25, 458804, 720890, 16, 458804, 720891, 15, 458804, 524281, 17, 458804, 524282, 16, 458804, 524283, 15, 458804, 524279, 26, 458804, 524278, 26, 458804, 524277, 25, 458804, 524276, 23, 458804, 524275, 20, 458804, 524274, 20, 1048624, 524273, 19, 458804, 524272, 19, 458804, 524271, 19, 458804, 524270, 19, 458804, 524269, 18, 458804, 524280, 23, 458804, 327672, 23, 458804, 327673, 17, 458804, 327674, 16, 458804, 327675, 15, 458804, 327670, 26, 458804, 327671, 26, 458804, 65529, 17, 458804, 65530, 16, 458804, 65531, 15, 458804, 65528, 23, 458804, 65527, 26, 458804, 65526, 26, 458804, 327661, 22, 458804, 327662, 22, 458804, 327663, 22, 458804, 327665, 23, 458804, 327664, 23, 458804, 327666, 23, 458804, 327667, 26, 458804, 327668, 26, 458804, 327669, 26, 458804, 131061, 26, 458804, 131060, 26, 458804, 131059, 26, 458804, 131058, 26, 458804, 131057, 26, 458804, 131056, 26, 458804, 131055, 26, 458804, 131054, 26, 458804, 131053, 26, 458804, -131088, 26, 458804, -131089, 26, 458804, -131090, 26, 458804, -131091, 26, 458804, -131087, 26, 458804, -131086, 26, 458804, -131085, 26, 458804, -131084, 26, 458804, -131083, 26, 458804, -131082, 26, 458804, -131081, 26, 458804, -131080, 23, 458804, -131079, 17, 458804, -131078, 16, 458804, -131077, 15, 458804, -196603, 15, 458804, -196602, 16, 458804, -196601, 21, 458804, -196603, 25, 458804, -196602, 26, 458804, -196601, 27, 458804, -196600, 27, 458804, -196599, 27, 458804, -196598, 27, 458804, -196597, 27, 458804, -196596, 27, 458804, -196595, 27, 458804, -196594, 27, 458804, -196593, 27, 458804, -196592, 27, 458804, -196591, 27, 458804, -196590, 27, 458804, -196589, 27, 458804, -196588, 27, 458804, 65541, 25, 458804, 65542, 26, 458804, 65543, 27, 458804, 65544, 27, 458804, 65545, 27, 458804, 65546, 27, 458804, 65547, 27, 458804, 65548, 27, 458804, 65549, 27, 458804, 65550, 27, 458804, 65551, 27, 458804, 65552, 27, 458804, 65553, 27, 458804, 65554, 27, 458804, 65555, 27, 458804, 65556, 27, 458804, 65543, 21, 458804, 65543, 20, 458804, 65542, 16, 458804, 65541, 15, 458804, 327700, 27, 458804, 655365, 15, 458804, 655366, 15, 458804, 655367, 21, 458804, 655365, 25, 458804, 655366, 25, 458804, 655367, 27, 458804, 655368, 26, 458804, 655369, 26, 458804, 655370, 26, 458804, 655370, 27, 458804, 655371, 27, 458804, 655372, 27, 458804, 655373, 27, 458804, 655374, 27, 458804, 655375, 27, 458804, 655376, 27, 458804, 655377, 27, 458804, 655378, 27, 458804, 655379, 27, 458804, 655380, 27, 458804, 655368, 27, 458804, 655369, 27, 458804, 393221, 15, 458804, 393222, 16, 458804, 393223, 21, 458804, 393221, 25, 458804, 393222, 26, 458804, 393223, 27, 458804, 393224, 27, 458804, 393225, 27, 458804, 393226, 27, 458804, 393227, 27, 458804, 393228, 27, 458804, 393229, 27, 458804, 393230, 27, 458804, 393231, 27, 458804, 393231, 26, 458804, 393232, 26, 458804, 393233, 26, 458804, 393234, 26, 458804, 393235, 26, 458804, 393235, 27, 458804, 393236, 27, 458804, 131077, 15, 458804, 131078, 16, 458804, 131079, 21, 458804, 131077, 25, 458804, 131078, 26, 458804, 131079, 26, 458804, 131079, 27, 458804, 131080, 27, 458804, 131081, 27, 458804, 131082, 27, 458804, 131083, 27, 458804, 131084, 27, 458804, 131085, 27, 458804, 131086, 27, 458804, 131087, 27, 458804, 131088, 27, 458804, 131089, 27, 458804, 131090, 27, 458804, 131091, 27, 458804, 131092, 27, 458804, -131067, 15, 458804, -131066, 16, 458804, -131065, 20, 458804, -131067, 24, 458804, -131066, 26, 458804, -131065, 26, 458804, -131064, 26, 458804, -131063, 26, 458804, -131062, 26, 458804, -131061, 26, 458804, -131060, 26, 458804, -131060, 27, 458804, -131059, 27, 458804, -131058, 27, 458804, -131057, 27, 458804, -131056, 27, 458804, -131055, 27, 458804, -131054, 27, 458804, -131053, 27, 458804, -131052, 27, 458804, -393211, 15, 458804, -393210, 16, 458804, -393209, 21, 458804, -393211, 25, 458804, -393210, 26, 458804, -393209, 27, 458804, -393208, 27, 458804, -393207, 27, 458804, -393206, 27, 458804, -393205, 27, 458804, -393204, 27, 458804, -393203, 27, 458804, -393202, 27, 458804, -393201, 27, 458804, -393200, 27, 458804, -393199, 27, 458804, -393198, 27, 458804, -393197, 27, 458804, -393196, 27, 458804, 589830, 16, 458804, 589830, 25, 458804, 589830, 26, 458804, 393233, 27, 458804, 393234, 27, 458804, 393232, 27, 458804, 655353, 19, 1441831, 655353, 20, 1441831, 655354, 20, 1048614, 655354, 19, 1048614, 655354, 18, 39, 655355, 17, 1441831, 655356, 17, 1048615, 655357, 16, 39, 655357, 15, 39, 655357, 14, 39, 655354, 21, 655390, 655354, 17, 655384, 655357, 17, 24, 458733, 19, 1441838, 458741, 25, 655406, 327663, 25, 1048622, 327662, 23, 1048598, 327666, 24, 1048580, 327663, 23, 1441836, 327666, 25, 1441836, 524272, 20, 1441836, 524274, 22, 655404, 524270, 20, 1048624, 524272, 22, 1048621, 524270, 21, 1048618, 524273, 22, 42, 524271, 20, 1441834, 327662, 24, 655402, 327665, 25, 1048618, 524276, 25, 1048619, 983022, 17, 1048590, 1245176, 17, 70, 1507320, 17, 70, 1703928, 17, 50, 917497, 15, 1441839, 917498, 15, 655407, 917486, 15, 655373, 917486, 13, 655373, 917486, 11, 655373, 917486, 9, 655372, 917487, 8, 655375, 917487, 10, 655375, 917487, 17, 655383, 917488, 7, 23, 917496, 14, 21, 917488, 13, 21, 917489, 19, 37, 917488, 10, 47, 917488, 14, 69, 1179632, 14, 69, 1441776, 14, 69, 1703920, 14, 18, 851955, 19, 1441810, 851960, 21, 1048595, 851959, 21, 1048595, 851958, 22, 9, 851960, 17, 1048646, 983032, 17, 1048646)
 }
 metadata/_editor_floor_ = Vector3(0, 14, 0)
+metadata/_edit_group_ = true
 
 [node name="outside walls2" type="GridMap" parent="outside"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://addons/markdownlabel/markdownlabel.gd" id="1_m7bxc"]
 [ext_resource type="Script" path="res://scripts/initial_message.gd" id="1_v3mkh"]
-[ext_resource type="Texture2D" uid="uid://bb4bn7kelwk8e" path="res://assets/images/background.png" id="2_5e0n7"]
+[ext_resource type="Texture2D" uid="uid://cw0isqckimjac" path="res://assets/images/background.png" id="2_5e0n7"]
 [ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h1_format.gd" id="2_vyrrj"]
 [ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h2_format.gd" id="3_w543r"]
 [ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h3_format.gd" id="4_ooobn"]
