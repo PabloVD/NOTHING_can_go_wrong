@@ -1,7 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://wutvim7gvym4"]
+[gd_scene load_steps=18 format=3 uid="uid://wutvim7gvym4"]
 
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_apolt"]
 [ext_resource type="Script" path="res://addons/markdownlabel/markdownlabel.gd" id="2_jxje4"]
+[ext_resource type="Texture2D" uid="uid://bb4bn7kelwk8e" path="res://assets/images/background.png" id="2_vytv8"]
 [ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h1_format.gd" id="3_v11js"]
 [ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h2_format.gd" id="4_8sfhg"]
 [ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h3_format.gd" id="5_7q5w4"]
@@ -80,11 +81,16 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_apolt")
 
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(576.5, 326)
+scale = Vector2(0.709816, 0.695931)
+texture = ExtResource("2_vytv8")
+
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
 offset_right = 1154.0
 offset_bottom = 651.0
-color = Color(0, 0, 0, 1)
+color = Color(0, 0, 0, 0.654902)
 
 [node name="Copyright" type="Label" parent="."]
 layout_mode = 1
@@ -190,6 +196,7 @@ offset_left = 93.0
 offset_top = 118.0
 offset_right = 1027.0
 offset_bottom = 387.0
+theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true
 text = "[font_size=36]Credits[/font_size]
 
@@ -283,6 +290,7 @@ offset_left = 93.0
 offset_top = 118.0
 offset_right = 808.0
 offset_bottom = 387.0
+theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true
 text = "[font_size=36]Controls[/font_size]
 
@@ -292,7 +300,10 @@ text = "[font_size=36]Controls[/font_size]
 [ul]Space bar for jumping
 [/ul]
 
-[ul]Shift for running[/ul]"
+[ul]Shift for running
+[/ul]
+
+[ul]Esc for pause[/ul]"
 script = ExtResource("2_jxje4")
 markdown_text = "# Controls
 
@@ -300,7 +311,9 @@ markdown_text = "# Controls
 
 - Space bar for jumping
 
-- Shift for running"
+- Shift for running
+
+- Esc for pause"
 h1 = SubResource("Resource_35saj")
 h2 = SubResource("Resource_68q32")
 h3 = SubResource("Resource_q303c")
