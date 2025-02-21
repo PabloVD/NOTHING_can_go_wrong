@@ -134,7 +134,10 @@ func set_bug_timer(ti=2, tf=5):
 
 func status():
 	if not random_bugs_fail and not jump_fail and not run_fail and not direction_fail:
-		return "OK"
+		if not can_get_errors:
+			return "OK"
+		else:
+			return "Warning! System overheated - Expected to fail soon"
 	var bugs = []
 	if random_bugs_fail:
 		bugs.append("random bugs")
@@ -176,8 +179,8 @@ func _on_error_timer_timeout() -> void:
 		elif bug=="direction":
 			invert_direction()
 	
-	else:
-		alive=false
+	#else:
+	#	alive=false
 
 func start_failing():
 	can_get_errors = true

@@ -19,10 +19,9 @@ func _ready() -> void:
 	barrel_spawn.Name = 'barrel'
 	production_spawn.Name = 'production'
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	game_ui.get_node("Points").text = "Points: "+str(robot.points)
+	game_ui.get_node("Points").text = "Packages: "+str(robot.points)
 	game_ui.get_node("Status").text = "Status: "+str(robot.status())
 	game_ui.get_node("ErrorBar").size = Vector2(robot.error_timer.time_left/20.*1100,25)  # terribly hardcoded esto eh
 
@@ -32,6 +31,8 @@ func _process(delta: float) -> void:
 		Globals.led_status['barrel'],
 		Globals.led_status['production']
 		]
+		
+	print(led_status, led_status.any(func(item): item>3))
 	
 	if not robot.alive or led_status.any(func(item): item>3):
 		lose()
@@ -47,7 +48,6 @@ func _input(event):
 
 func check_if_item_not_spawned(id, spawn_list):
 	return not spawn_list[id].ItemSpawned
-
 
 func _on_item_gen_timer_timeout() -> void:
 	const ID_LIST = [0,1,2,3]

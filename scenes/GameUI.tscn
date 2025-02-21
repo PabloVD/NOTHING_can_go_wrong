@@ -81,15 +81,15 @@ grow_vertical = 2
 
 [node name="Points" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 826.0
-offset_top = 44.0
-offset_right = 1760.0
-offset_bottom = 313.0
-theme_override_font_sizes/normal_font_size = 50
+offset_left = 946.0
+offset_top = 20.0
+offset_right = 1880.0
+offset_bottom = 289.0
+theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
-text = "Points: 0"
+text = "Packages: 20"
 script = ExtResource("1_nms5k")
-markdown_text = "Points: 0"
+markdown_text = "Packages: 20"
 h1 = SubResource("Resource_ycyle")
 h2 = SubResource("Resource_lxyv8")
 h3 = SubResource("Resource_u0baf")
