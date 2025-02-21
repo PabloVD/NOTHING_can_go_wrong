@@ -6,12 +6,12 @@
 [ext_resource type="MeshLibrary" uid="uid://dv123g0eu3gjf" path="res://space_kit_meshlib.tres" id="4_v5kte"]
 [ext_resource type="PackedScene" uid="uid://bayivfpb4i1bb" path="res://scenes/DeliveryZone.tscn" id="5_w4mfm"]
 [ext_resource type="PackedScene" uid="uid://c054sygn7lnl0" path="res://scenes/RepairStation.tscn" id="6_ihnaf"]
-[ext_resource type="PackedScene" uid="uid://bu1hsky5qhpda" path="res://assets/space_kit/craft_cargoB.glb" id="7_m46gt"]
+[ext_resource type="PackedScene" uid="uid://deu14osf1qlp2" path="res://assets/space_kit/craft_cargoB.glb" id="7_m46gt"]
 [ext_resource type="PackedScene" uid="uid://betwam7el5ebp" path="res://scenes/GameUI.tscn" id="8_51j5e"]
 [ext_resource type="PackedScene" uid="uid://bi0m2gpwpdhum" path="res://scenes/GameOver.tscn" id="9_4i7x0"]
 [ext_resource type="PackedScene" uid="uid://dwaa2lp2pb460" path="res://scenes/Item.tscn" id="10_1p7h6"]
 [ext_resource type="PackedScene" uid="uid://013c3vhx7eb5" path="res://scenes/ItemSpawner.tscn" id="11_t57dk"]
-[ext_resource type="AudioStream" uid="uid://b76jjyix4v4nq" path="res://assets/sounds/NOTHING.mp3" id="12_my2qj"]
+[ext_resource type="AudioStream" uid="uid://ivaynohwtkl6" path="res://assets/sounds/NOTHING.mp3" id="12_my2qj"]
 
 [sub_resource type="Sky" id="Sky_jle43"]
 
