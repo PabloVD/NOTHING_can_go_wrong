@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://jycw73q2bqon"]
+[gd_scene load_steps=17 format=3 uid="uid://jycw73q2bqon"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_du5tp"]
 [ext_resource type="PackedScene" uid="uid://li0y2c45rbg6" path="res://scenes/Robot.tscn" id="2_idg4h"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dwaa2lp2pb460" path="res://scenes/Item.tscn" id="10_1p7h6"]
 [ext_resource type="PackedScene" uid="uid://013c3vhx7eb5" path="res://scenes/ItemSpawner.tscn" id="11_t57dk"]
 [ext_resource type="AudioStream" uid="uid://ivaynohwtkl6" path="res://assets/sounds/NOTHING.mp3" id="12_my2qj"]
+[ext_resource type="PackedScene" uid="uid://btfckxwjae5xo" path="res://scenes/PauseMenu.tscn" id="13_xm281"]
 
 [sub_resource type="Sky" id="Sky_jle43"]
 
@@ -147,7 +148,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.64, 0.424927, -9.34055)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.4269, 0.424927, -14.5948)
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 stream = ExtResource("12_my2qj")
 autoplay = true
+
+[node name="PauseMenu" parent="." instance=ExtResource("13_xm281")]
+visible = false
 
 [connection signal="timeout" from="ItemGenTimer" to="." method="_on_item_gen_timer_timeout"]

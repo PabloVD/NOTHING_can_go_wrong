@@ -39,6 +39,12 @@ func _process(delta: float) -> void:
 		game_over.visible = true
 		Globals.game_over()
 
+func _input(event):
+	if event.is_action_pressed("ui_cancel"):
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		$PauseMenu.visible = true
+		get_tree().paused = true
+
 func check_if_item_not_spawned(id, spawn_list):
 	return not spawn_list[id].ItemSpawned
 

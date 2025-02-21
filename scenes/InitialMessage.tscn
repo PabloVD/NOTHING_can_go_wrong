@@ -197,11 +197,13 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="ColorRect" type="ColorRect" parent="Tutorial"]
+layout_mode = 0
 offset_right = 1154.0
 offset_bottom = 651.0
 color = Color(0, 0, 0, 1)
 
 [node name="MarkdownLabel" type="RichTextLabel" parent="Tutorial"]
+layout_mode = 0
 offset_left = 93.0
 offset_top = 82.0
 offset_right = 1027.0
@@ -219,6 +221,7 @@ h5 = SubResource("Resource_unspi")
 h6 = SubResource("Resource_2xvvi")
 
 [node name="Play" type="Button" parent="Tutorial"]
+layout_mode = 0
 offset_left = 91.0
 offset_top = 487.0
 offset_right = 1067.0
