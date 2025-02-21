@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://addons/markdownlabel/markdownlabel.gd" id="1_m7bxc"]
 [ext_resource type="Script" path="res://scripts/initial_message.gd" id="1_v3mkh"]
-[ext_resource type="Texture2D" uid="uid://cw0isqckimjac" path="res://assets/images/background.png" id="2_5e0n7"]
+[ext_resource type="Texture2D" uid="uid://bb4bn7kelwk8e" path="res://assets/images/background.png" id="2_5e0n7"]
 [ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h1_format.gd" id="2_vyrrj"]
 [ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h2_format.gd" id="3_w543r"]
 [ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h3_format.gd" id="4_ooobn"]
@@ -153,7 +153,6 @@ offset_bottom = 651.0
 color = Color(0, 0, 0, 0.654902)
 
 [node name="Greetings" type="Control" parent="."]
-visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -170,7 +169,7 @@ text = "Greetings, comrade!
 
 You have been assigned to control the Network Operational Technobot for Hazardous Industrial Nuclear Grinding (N.O.T.H.I.N.G.), our best mechanical agent.
 
-You must carry all the nuclear packages to the delivery zone.
+You must carry 20 nuclear packages to the delivery zone.
 
 But beware! Because the robot is missing its last revision session… and it can go wrong.
 "
@@ -179,7 +178,7 @@ markdown_text = "Greetings, comrade!
 
 You have been assigned to control the Network Operational Technobot for Hazardous Industrial Nuclear Grinding (N.O.T.H.I.N.G.), our best mechanical agent.
 
-You must carry all the nuclear packages to the delivery zone.
+You must carry 20 nuclear packages to the delivery zone.
 
 But beware! Because the robot is missing its last revision session… and it can go wrong.
 "
@@ -200,6 +199,7 @@ theme_override_font_sizes/font_size = 50
 text = "Proceed"
 
 [node name="Tutorial" type="Control" parent="."]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -212,19 +212,19 @@ offset_right = 744.0
 offset_bottom = 533.0
 theme_override_font_sizes/normal_font_size = 25
 bbcode_enabled = true
-text = "There are 4 drop points where you must collect the packages. You need to deliver 20 packages.
+text = "There are 4 drop points where you must collect the 20 packages.
 
-The nuclear warning is indicated by the color: white (if empty), green, yellow and red, and grows when new packages are randomly dropped.
+The nuclear warning is indicated by the color: white (if empty), green, yellow and red, and grows with time if the packages are not collected.
 
-If one of them gets overloaded above red level, you will fail.
+If one of them gets overloaded above red level, the plant will explode and you will fail.
 
 Good luck and long live the techno revolution!"
 script = ExtResource("1_m7bxc")
-markdown_text = "There are 4 drop points where you must collect the packages. You need to deliver 20 packages.
+markdown_text = "There are 4 drop points where you must collect the 20 packages.
 
-The nuclear warning is indicated by the color: white (if empty), green, yellow and red, and grows when new packages are randomly dropped.
+The nuclear warning is indicated by the color: white (if empty), green, yellow and red, and grows with time if the packages are not collected.
 
-If one of them gets overloaded above red level, you will fail.
+If one of them gets overloaded above red level, the plant will explode and you will fail.
 
 Good luck and long live the techno revolution!"
 h1 = SubResource("Resource_ys36c")
@@ -261,6 +261,7 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("10_t13jh")
 
 [node name="ProductionLineRect" parent="Tutorial/Map" instance=ExtResource("11_bpx68")]
+layout_mode = 0
 offset_left = 82.0
 offset_top = 18.0
 offset_right = 92.0
@@ -269,6 +270,7 @@ scale = Vector2(2, 2)
 color = Color(1, 1, 1, 1)
 
 [node name="BarrelsRect" parent="Tutorial/Map" instance=ExtResource("11_bpx68")]
+layout_mode = 0
 offset_left = 280.0
 offset_top = 61.0
 offset_right = 290.0
@@ -277,6 +279,7 @@ scale = Vector2(2, 2)
 color = Color(0, 1, 0, 1)
 
 [node name="MineRect" parent="Tutorial/Map" instance=ExtResource("11_bpx68")]
+layout_mode = 0
 offset_left = 45.0
 offset_top = 294.0
 offset_right = 55.0
@@ -285,6 +288,7 @@ scale = Vector2(2, 2)
 color = Color(1, 1, 0, 1)
 
 [node name="ComputersRect" parent="Tutorial/Map" instance=ExtResource("11_bpx68")]
+layout_mode = 0
 offset_left = 248.0
 offset_top = 228.0
 offset_right = 258.0
