@@ -57,6 +57,7 @@ func _on_item_gen_timer_timeout() -> void:
 		spawner.spawn_item()
 
 func lose():
+	robot.alive = false
 	game_over.visible = true
 	Globals.game_over()
 
