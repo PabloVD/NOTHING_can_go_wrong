@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c671fr3wfupjo" path="res://assets/space_station/skip.glb" id="2_etvwc"]
 [ext_resource type="PackedScene" uid="uid://brabl34455p6e" path="res://assets/space_station/skip-rocks.glb" id="3_xkv2t"]
 [ext_resource type="PackedScene" uid="uid://dxy5340pp8xas" path="res://scenes/Gobot.tscn" id="4_1seai"]
-[ext_resource type="AudioStream" uid="uid://bvsjx8pkh60gw" path="res://assets/sounds/330359__glitchedtones__error-tone.wav" id="4_nuwoe"]
+[ext_resource type="AudioStream" uid="uid://boqm0aulvnqnj" path="res://assets/sounds/330359__glitchedtones__error-tone.wav" id="4_nuwoe"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u8xuk"]
 radius = 0.538078

@@ -34,49 +34,51 @@ func _physics_process(delta: float) -> void:
 	# die if falling
 	if position.y<-2:
 		alive = false
-	
-	if Input.is_action_pressed("run") and not run_fail:
-		running = true
-		speed = SPEED_RUN
-	else:
-		running = false
-		speed = SPEED
-	
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
-
-	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		if not jump_fail:
-			velocity.y = JUMP_VELOCITY
-		else:
-			jump_error_sound.play()
-			print("cannot jump")
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var input_dir := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	if direction:
-		velocity.x = direction_scaler*direction.x * speed
-		velocity.z = direction_scaler*direction.z * speed
-		$Meshes.look_at(global_position - direction, Vector3.UP)
-		if running:
-			gobot.get_node("AnimationPlayer").play("Sprint")
-		else:
-			gobot.get_node("AnimationPlayer").play("Run")
-	else:
-		velocity.x = move_toward(velocity.x, 0, speed)
-		velocity.z = move_toward(velocity.z, 0, speed)
-	
-	move_and_slide()
-	
-	if not velocity:
-		gobot.get_node("AnimationPlayer").play("Idle")
 		
-	if not is_on_floor():
-		gobot.get_node("AnimationPlayer").play("Jump")
+	if alive:
+	
+		if Input.is_action_pressed("run") and not run_fail:
+			running = true
+			speed = SPEED_RUN
+		else:
+			running = false
+			speed = SPEED
+		
+		# Add the gravity.
+		if not is_on_floor():
+			velocity += get_gravity() * delta
+
+		# Handle jump.
+		if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+			if not jump_fail:
+				velocity.y = JUMP_VELOCITY
+			else:
+				jump_error_sound.play()
+				print("cannot jump")
+
+		# Get the input direction and handle the movement/deceleration.
+		# As good practice, you should replace UI actions with custom gameplay actions.
+		var input_dir := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+		var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+		if direction:
+			velocity.x = direction_scaler*direction.x * speed
+			velocity.z = direction_scaler*direction.z * speed
+			$Meshes.look_at(global_position - direction, Vector3.UP)
+			if running:
+				gobot.get_node("AnimationPlayer").play("Sprint")
+			else:
+				gobot.get_node("AnimationPlayer").play("Run")
+		else:
+			velocity.x = move_toward(velocity.x, 0, speed)
+			velocity.z = move_toward(velocity.z, 0, speed)
+		
+		move_and_slide()
+		
+		if not velocity:
+			gobot.get_node("AnimationPlayer").play("Idle")
+			
+		if not is_on_floor():
+			gobot.get_node("AnimationPlayer").play("Jump")
 
 func get_item():
 	has_item = true
@@ -138,6 +140,8 @@ func status():
 			return "OK"
 		else:
 			return "Warning! System overheated - Expected to fail soon"
+	if random_bugs_fail and jump_fail and run_fail and direction_fail:
+		return "full system about to fail, go to repair"
 	var bugs = []
 	if random_bugs_fail:
 		bugs.append("random bugs")
@@ -179,8 +183,8 @@ func _on_error_timer_timeout() -> void:
 		elif bug=="direction":
 			invert_direction()
 	
-	#else:
-	#	alive=false
+	else:
+		alive=false
 
 func start_failing():
 	can_get_errors = true

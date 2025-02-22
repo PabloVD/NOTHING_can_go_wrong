@@ -19,7 +19,6 @@ func item_grab() -> void:
 	$DecayTimer.stop()
 	Globals.led_status[Name] = 0
 	
-
 func _on_decay_timer_timeout() -> void:
 	Globals.led_status[Name] += 1
 	$DecayTimer.start()

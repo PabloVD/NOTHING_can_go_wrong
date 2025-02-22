@@ -303,7 +303,7 @@ text = "[font_size=45]Controls[/font_size]
 [ul]Shift for running
 [/ul]
 
-[ul]Esc for pause[/ul]"
+[ul]Esc or Enter for pause[/ul]"
 script = ExtResource("2_jxje4")
 markdown_text = "# Controls
 
@@ -313,7 +313,7 @@ markdown_text = "# Controls
 
 - Shift for running
 
-- Esc for pause"
+- Esc or Enter for pause"
 h1 = SubResource("Resource_35saj")
 h2 = SubResource("Resource_68q32")
 h3 = SubResource("Resource_q303c")

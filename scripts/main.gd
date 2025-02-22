@@ -5,7 +5,6 @@ const POINTS_TO_WIN := 20
 @onready var game_ui: Control = $GameUI
 @onready var robot: CharacterBody3D = $Robot
 @onready var game_over: Control = $GameOver
-
 @onready var comp_spawn = $computers_spawn
 @onready var mine_spawn = $mine_spawn
 @onready var barrel_spawn = $barrels_spawn
@@ -31,17 +30,15 @@ func _process(delta: float) -> void:
 		Globals.led_status['barrel'],
 		Globals.led_status['production']
 		]
-		
-	print(led_status, led_status.any(func(item): item>3))
 	
-	if not robot.alive or led_status.any(func(item): item>3):
+	if not robot.alive or led_status.any(func(item): return item>3):
 		lose()
 		
 	if robot.points>=POINTS_TO_WIN:
 		win()
 
 func _input(event):
-	if event.is_action_pressed("ui_cancel"):
+	if event.is_action_pressed("ui_cancel") or event.is_action_pressed("ui_text_submit"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		$PauseMenu.visible = true
 		get_tree().paused = true
